@@ -5,10 +5,10 @@ import {
   AiFillLinkedin,
   AiFillYoutube,
 } from "react-icons/ai";
-import { useState, useEffect } from "react";
-import Carousel from "react-multi-carousel";
+import { useState } from "react";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const responsive = {
   desktop: {
@@ -29,41 +29,25 @@ const leadershipTeam = [
   {
     name: "Miguel Gasakure",
     role: "CEO",
-    avatar: "./images/Miguel-Black-White.jpg",
+    avatar: "/images/Miguel-Black-White.jpg",
     quote: "Miguel",
   },
   {
     name: "Igor Mazimpaka",
     role: "COO",
-    avatar: "./images/Igor1.jpg",
+    avatar: "/images/Igor1.jpg",
     quote: "Igor",
   },
   {
     name: "Junior Ngango",
     role: "CTO",
-    avatar: "./images/Jr-Black-White.jpg",
-    quote: "A software Engineer who constantly seeks out creative solutions to every problems.",
+    avatar: "/images/Jr-Black-White.jpg",
+    quote:
+      "A software Engineer who constantly seeks out creative solutions to every problems.",
   },
 ];
 
 export default function Home() {
-  // const [quote, setQuote] = useState("");
-
-  // useEffect(() => {
-  //   async function getQuote() {
-  //     try {
-  //       const res = await fetch(
-  //         "https://cors-anywhere.herokuapp.com/https://zenquotes.io/api/random"
-  //       );
-  //       const data = await res.json();
-  //       const { q } = data[0]; // Destructure the data object to get the "q" value
-  //       setQuote(q);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   }
-  //   getQuote();
-  // }, []);
   const [isDarkMode, setDarkMode] = useState(false);
 
   function toggleDarkMode() {
@@ -107,101 +91,76 @@ export default function Home() {
             </ul>
           </nav>
         </section>
-        {/* <div className="absolute top-0 left-0 right-0 bottom-0 z-0">
-            <Carousel
-              responsive={responsive}
-              className="w-full h-full"
-              containerClass="relative"
-            >
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1617802690992-15d93263d3a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                  alt="3D Image"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://images.pexels.com/photos/6474473/pexels-photo-6474473.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt="VR Image"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1533310266094-8898a03807dd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                  alt="AR Image"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </Carousel>
-          </div> */}
-        <section className="p-10 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 items-center">
-          {/* Hero Images */}
+        <section className="p-10 grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-8 items-center">
           <div className="md:p-0 w-auto h-80 md:h-full sm:mt-0 sm:pt-0">
-            <Image src="./ar.svg" alt="Illustration" className="w-full" />
+            <Image
+              src="/ar.svg"
+              alt="Illustration of virtual reality headset and globe"
+              className="w-full"
+              width={900}
+              height={600}
+            />
+            <p className="text-gray-500 text-center mt-2">
+              Explore new worlds with EJO-D&apos;s immersive 3D and VR experiences
+            </p>
           </div>
-
-          {/* Hero Content */}
           <div className="md:p-0 sm:mt-10">
             <div className="max-w-lg mx-auto">
               <div className="animate-left">
                 <h1 className="text-3xl md:text-5xl font-bold m-4">
-                  We specialize in UI/UX, Web Development, Digital Marketing.
+                  Blast off to new worlds with EJO-D, the premier African 3D and
+                  VR content creation startup
                 </h1>
                 <p className="mb-6">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Quisque fringilla magna mauris. Nulla fermentum viverra sem eu
-                  rhoncus consequat varius nisi quis, posuere magna.
+                  Our talented team of designers and artists create jaw-dropping
+                  3D and VR experiences that bring your ideas to life with
+                  creativity and flair. From architectural visualization to
+                  product prototyping, we transport you to places you&apos;ve never
+                  been before. As an African startup, we&apos;re proud to showcase
+                  the boundless creativity and innovation of our continent. Join
+                  us on a journey to the unknown!
                 </p>
                 <div className="text-center">
-                  <a href="#" className="btn btn-primary mr-4">
-                    Get Started Now
-                  </a>
+                  <Link href="#">
+                    <a className="btn btn-primary mr-4">Get in touch</a>
+                  </Link>
                   <span className="text-gray-500">
-                    <a href="#" className="inline-block">
-                      Call us (250) 786 686 - 391
+                    Or send us a message at{" "}
+                    <a href="mailto:info@ejo-d.com" className="inline-block">
+                      info@ejo-d.com
                     </a>
-                    <span className="inline-block ml-2">
-                      For any question or concern
-                    </span>
                   </span>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        {/* <div className="px-10 flex">
-  <img src="./ar.svg" alt="Illustration" className="w-1/2" />
-  <div className="w-1/2 pl-4">
-    <h3 className="text-2xl font-medium">Heading</h3>
-    <p className="text-gray-600">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, 
-      magna eu convallis tincidunt, augue odio ullamcorper ante, eget 
-      tincidunt nulla ipsum vel quam.
-    </p>
-  </div>
-</div> */}
-
         <section className="text-center p-10 my-12">
           <h2 className="mb-5 text-2xl text-center font-medium">
             Leadership Team
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {leadershipTeam.map((member, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6">
+              <div
+                key={index}
+                className={`rounded-lg shadow-lg p-6 ${
+                  isDarkMode
+                    ? "bg-gray-700 text-white"
+                    : "dark:bg-white text-gray-600"
+                }`}
+              >
                 <Image
                   src={member.avatar}
                   className="w-32 h-32 rounded-full mx-auto"
+                  width={200}
+                  height={200}
                   alt="CEO avatar"
                 />
                 <h3 className="text-lg font-medium text-center py-2">
                   {member.name}
                 </h3>
-                <p className="text-gray-600 text-center font-medium py-2">
-                  {member.role}
-                </p>
-                <p className="text-gray-600 text-center py-2">{member.quote}</p>
+                <p className="text-center font-medium py-2">{member.role}</p>
+                <p className="text-center py-2">{member.quote}</p>
               </div>
             ))}
           </div>
@@ -214,7 +173,7 @@ export default function Home() {
             <AiFillYoutube />
           </div>
         </section>
-        <section>
+        <section className="text-center p-10 my-12">
           <div>
             <h3 className="text-3xl py-1 dark:text-white ">Services I offer</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
@@ -231,7 +190,11 @@ export default function Home() {
             </p>
           </div>
           <div className="lg:flex gap-10">
-            <div className="text-center shadow-lg p-10 rounded-xl my-10  dark:bg-white flex-1">
+            <div
+              className={`text-center shadow-lg p-10 rounded-xl my-10  flex-1 ${
+                isDarkMode ? "bg-gray-700" : "dark:bg-white "
+              }`}
+            >
               <Image
                 src="https://raw.githubusercontent.com/developedbyed/react-portofolio-with-tailwind/main/public/design.png"
                 alt="design"
@@ -246,7 +209,11 @@ export default function Home() {
                 design theory.
               </p>
             </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
+            <div
+              className={`text-center shadow-lg p-10 rounded-xl my-10 flex-1 ${
+                isDarkMode ? "bg-gray-700" : "dark:bg-white "
+              }`}
+            >
               <Image
                 src="https://raw.githubusercontent.com/developedbyed/react-portofolio-with-tailwind/main/public/code.png"
                 alt="code"
@@ -257,11 +224,15 @@ export default function Home() {
                 Code your dream project
               </h3>
               <p className="py-2">
-                Do you have an idea for your next great website? Let&apos;s make it a
-                reality.
+                Do you have an idea for your next great website? Let&apos;s make
+                it a reality.
               </p>
             </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
+            <div
+              className={`text-center shadow-lg p-10 rounded-xl my-10 flex-1 ${
+                isDarkMode ? "bg-gray-700" : "dark:bg-white "
+              }`}
+            >
               <Image
                 src="https://raw.githubusercontent.com/developedbyed/react-portofolio-with-tailwind/main/public/consulting.png"
                 alt="consulting"
@@ -276,9 +247,9 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="py-10">
+        <section className="text-center p-10">
           <div>
-            <h3 className="text-3xl py-1 dark:text-white ">Portofolio</h3>
+            <h3 className="text-3xl py-1 dark:text-white ">Portfolio</h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               Since the beginning of my journey as a freelance designer and
               developer, I&apos;ve done remote work for
