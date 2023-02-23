@@ -101,7 +101,7 @@ export default function Home() {
               height={600}
             />
             <p className="text-gray-500 text-center my-2">
-              Explore new worlds with EJO-D's immersive 3D and VR experiences
+              Explore new worlds with EJO-D&apos;s immersive 3D and VR experiences
             </p>
           </div>
           <div className="md:p-0 sm:mt-6">
@@ -115,8 +115,8 @@ export default function Home() {
                   Our talented team of designers and artists create jaw-dropping
                   3D and VR experiences that bring your ideas to life with
                   creativity and flair. From architectural visualization to
-                  product prototyping, we transport you to places you've never
-                  been before. As an African startup, we're proud to showcase
+                  product prototyping, we transport you to places you&apos;ve never
+                  been before. As an African startup, we&apos;re proud to showcase
                   the boundless creativity and innovation of our continent. Join
                   us on a journey to the unknown!
                 </p>
