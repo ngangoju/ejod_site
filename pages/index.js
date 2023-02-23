@@ -92,7 +92,7 @@ export default function Home() {
           </nav>
         </section>
         <section className="p-10 grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-8 items-center">
-          <div className="md:p-0 w-auto h-80 md:h-full sm:mt-0 sm:pt-0">
+          <div className="sm:mb-20 w-auto h-80 md:h-full md:mb-0 sm:pt-0">
             <Image
               src="/ar.svg"
               alt="Illustration of virtual reality headset and globe"
@@ -100,23 +100,23 @@ export default function Home() {
               width={900}
               height={600}
             />
-            <p className="text-gray-500 text-center mt-2">
-              Explore new worlds with EJO-D&apos;s immersive 3D and VR experiences
+            <p className="text-gray-500 text-center my-2">
+              Explore new worlds with EJO-D's immersive 3D and VR experiences
             </p>
           </div>
-          <div className="md:p-0 sm:mt-10">
+          <div className="md:p-0 sm:mt-6">
             <div className="max-w-lg mx-auto">
               <div className="animate-left">
-                <h1 className="text-3xl md:text-5xl font-bold m-4">
+                <h1 className="text-4xl font-bold">
                   Blast off to new worlds with EJO-D, the premier African 3D and
                   VR content creation startup
                 </h1>
-                <p className="mb-6">
+                <p className="my-6">
                   Our talented team of designers and artists create jaw-dropping
                   3D and VR experiences that bring your ideas to life with
                   creativity and flair. From architectural visualization to
-                  product prototyping, we transport you to places you&apos;ve never
-                  been before. As an African startup, we&apos;re proud to showcase
+                  product prototyping, we transport you to places you've never
+                  been before. As an African startup, we're proud to showcase
                   the boundless creativity and innovation of our continent. Join
                   us on a journey to the unknown!
                 </p>
@@ -160,7 +160,7 @@ export default function Home() {
                   {member.name}
                 </h3>
                 <p className="text-center font-medium py-2">{member.role}</p>
-                <p className="text-center py-2">{member.quote}</p>
+                <p className="text-center py-2 px-8">{member.quote}</p>
               </div>
             ))}
           </div>
@@ -175,8 +175,8 @@ export default function Home() {
         </section>
         <section className="text-center p-10 my-12">
           <div>
-            <h3 className="text-3xl py-1 dark:text-white ">Services I offer</h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
+            <h3 className="text-3xl py-1">Services we offer</h3>
+            <p className="text-md py-2 leading-8">
               Since the beginning of my journey as a freelance designer and
               developer, I&apos;ve done remote work for
               <span className="text-teal-500"> agencies </span>
@@ -184,7 +184,7 @@ export default function Home() {
               and collaborated with talanted people to create digital products
               for both business and consumer use.
             </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
+            <p className="text-md py-2 leading-8">
               I offer from a wide range of services, including brand design,
               programming and teaching.
             </p>
@@ -247,10 +247,10 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="text-center p-10">
+        <section className={`text-center p-10`}>
           <div>
-            <h3 className="text-3xl py-1 dark:text-white ">Portfolio</h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
+            <h3 className="text-3xl py-1">Portfolio</h3>
+            <p className="text-md py-2 leading-8">
               Since the beginning of my journey as a freelance designer and
               developer, I&apos;ve done remote work for
               <span className="text-teal-500"> agencies </span>
@@ -258,7 +258,7 @@ export default function Home() {
               and collaborated with talanted people to create digital products
               for both business and consumer use.
             </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
+            <p className="text-md py-2 leading-8">
               I offer from a wide range of services, including brand design,
               programming and teaching.
             </p>
