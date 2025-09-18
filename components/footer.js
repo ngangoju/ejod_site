@@ -8,8 +8,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <Link href="/" className="inline-block mb-6">
-              <h3 className="text-3xl font-bold text-primary">ƎJO-D</h3>
+            <Link href="/">
+              <a className="inline-block mb-6">
+                <h3 className="text-3xl font-bold text-primary">ƎJO-D</h3>
+              </a>
             </Link>
             <p className="body-text text-gray-300 mb-6 max-w-md">
               Innovative 3D solutions for education and medical sectors. Transforming the future with cutting-edge technology and immersive experiences.
@@ -31,11 +33,21 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
             <ul className="space-y-3">
-              <li><Link href="/" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Home</Link></li>
-              <li><Link href="/about" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">About</Link></li>
-              <li><Link href="/services" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Services</Link></li>
-              <li><Link href="/portfolio" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Portfolio</Link></li>
-              <li><Link href="/contact" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Contact</Link></li>
+              <li><Link href="/">
+                <a className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Home</a>
+              </Link></li>
+              <li><Link href="/about">
+                <a className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">About</a>
+              </Link></li>
+              <li><Link href="/services">
+                <a className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Services</a>
+              </Link></li>
+              <li><Link href="/portfolio">
+                <a className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Portfolio</a>
+              </Link></li>
+              <li><Link href="/contact">
+                <a className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Contact</a>
+              </Link></li>
             </ul>
           </div>
 
@@ -56,8 +68,10 @@ export default function Footer() {
                 <span>Kigali, Rwanda</span>
               </p>
             </div>
-            <Link href="/contact" className="inline-block mt-6 text-accent hover:text-primary transition-colors duration-300 font-semibold group">
-              Send a Message <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
+            <Link href="/contact">
+              <a className="inline-block mt-6 text-accent hover:text-primary transition-colors duration-300 font-semibold group">
+                Send a Message <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
+              </a>
             </Link>
           </div>
         </div>

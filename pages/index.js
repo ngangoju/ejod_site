@@ -69,8 +69,8 @@ export default function Home() {
             <div className="text-center text-white px-6 max-w-4xl mx-auto animate-slide-up">
               <h1 className="text-4xl md:text-6xl lg:text-7xl heading-primary mb-6 text-shadow-lg">Innovative 3D Solutions</h1>
               <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-10 text-shadow">Transforming Education and Healthcare</p>
-              <Link href="/services" className="btn-secondary text-lg">
-                Explore Services
+              <Link href="/services">
+                <a className="btn-secondary text-lg">Explore Services</a>
               </Link>
             </div>
           </div>
@@ -83,8 +83,8 @@ export default function Home() {
             <p className="body-text text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto">
               ƎJO-D specializes in 3D technologies for education and medical fields. Our solutions empower users with interactive, immersive experiences that drive innovation and improve outcomes.
             </p>
-            <Link href="/about" className="btn-primary">
-              Meet Our Team
+            <Link href="/about">
+              <a className="btn-primary">Meet Our Team</a>
             </Link>
           </div>
         </section>
@@ -103,8 +103,10 @@ export default function Home() {
                     </div>
                     <h3 className="text-2xl heading-primary mb-4">{service.title}</h3>
                     <p className="body-text mb-6">{service.description}</p>
-                    <Link href="/services" className="inline-block text-accent hover:text-primary transition-colors duration-300 font-semibold text-lg group-hover:translate-x-2">
-                      Learn More →
+                    <Link href="/services">
+                      <a className="inline-block text-accent hover:text-primary transition-colors duration-300 font-semibold text-lg group-hover:translate-x-2">
+                        Learn More →
+                      </a>
                     </Link>
                   </div>
                 );
@@ -129,8 +131,8 @@ export default function Home() {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <Link href="/portfolio" className="btn-primary text-sm">
-                        View Project
+                      <Link href="/portfolio">
+                        <a className="btn-primary text-sm">View Project</a>
                       </Link>
                     </div>
                   </div>
@@ -150,8 +152,8 @@ export default function Home() {
           <div className="container-narrow">
             <h2 className="heading-primary mb-8 text-white">Ready to Start Your Project?</h2>
             <p className="text-xl body-text mb-10 text-white/90">Contact us today to discuss how our 3D solutions can benefit your organization.</p>
-            <Link href="/contact" className="btn-secondary bg-white text-primary hover:bg-gray-100">
-              Get In Touch
+            <Link href="/contact">
+              <a className="btn-secondary bg-white text-primary hover:bg-gray-100">Get In Touch</a>
             </Link>
           </div>
         </section>

@@ -19,20 +19,30 @@ function Header(props) {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
-              Home
+            <Link href="/">
+              <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                Home
+              </a>
             </Link>
-            <Link href="/about" className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
-              About
+            <Link href="/about">
+              <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                About
+              </a>
             </Link>
-            <Link href="/services" className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
-              Services
+            <Link href="/services">
+              <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                Services
+              </a>
             </Link>
-            <Link href="/portfolio" className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
-              Portfolio
+            <Link href="/portfolio">
+              <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                Portfolio
+              </a>
             </Link>
-            <Link href="/contact" className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
-              Contact
+            <Link href="/contact">
+              <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                Contact
+              </a>
             </Link>
             
             {/* Dark Mode Toggle */}
@@ -45,11 +55,10 @@ function Header(props) {
             </button>
 
             {/* Resume Button */}
-            <Link 
-              href="#" 
-              className="btn-primary text-sm px-6 py-3"
-            >
-              Resume
+            <Link href="#">
+              <a className="btn-primary text-sm px-6 py-3">
+                Resume
+              </a>
             </Link>
           </div>
 
@@ -70,37 +79,42 @@ function Header(props) {
               <Link 
                 href="/" 
                 onClick={() => setIsMenuOpen(false)}
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
-                Home
+                <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                  Home
+                </a>
               </Link>
               <Link 
                 href="/about" 
                 onClick={() => setIsMenuOpen(false)}
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
-                About
+                <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                  About
+                </a>
               </Link>
               <Link 
                 href="/services" 
                 onClick={() => setIsMenuOpen(false)}
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
-                Services
+                <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                  Services
+                </a>
               </Link>
               <Link 
                 href="/portfolio" 
                 onClick={() => setIsMenuOpen(false)}
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
-                Portfolio
+                <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                  Portfolio
+                </a>
               </Link>
               <Link 
                 href="/contact" 
                 onClick={() => setIsMenuOpen(false)}
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
-                Contact
+                <a className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2">
+                  Contact
+                </a>
               </Link>
               
               <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -116,9 +130,10 @@ function Header(props) {
                 <Link 
                   href="#" 
                   onClick={() => setIsMenuOpen(false)}
-                  className="btn-primary text-sm px-4 py-2"
                 >
-                  Resume
+                  <a className="btn-primary text-sm px-4 py-2">
+                    Resume
+                  </a>
                 </Link>
               </div>
             </div>

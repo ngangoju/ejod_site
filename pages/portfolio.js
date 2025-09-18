@@ -58,7 +58,9 @@ export default function Portfolio() {
                   <span className="inline-block bg-accent text-white px-3 py-1 rounded-full text-sm mb-2">{project.category}</span>
                   <h3 className="text-xl font-semibold mb-2 text-primary">{project.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                  <Link href="#" className="text-accent hover:text-primary transition font-medium">View Project →</Link>
+                  <Link href="#">
+                    <a className="text-accent hover:text-primary transition font-medium">View Project →</a>
+                  </Link>
                 </div>
               </div>
             ))}
