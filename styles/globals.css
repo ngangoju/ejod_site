@@ -2,24 +2,143 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: burtons, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  line-height: 1.7;
+  scroll-behavior: smooth;
 }
 
 * {
   box-sizing: border-box;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button, 
+input, 
+textarea {
+  font-family: inherit;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-poppins font-bold text-dark-slate dark:text-white;
+    line-height: 1.3;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  p {
+    @apply font-roboto text-gray-600 dark:text-gray-300 leading-relaxed;
+    font-size: 1.125rem;
+  }
+}
+
+@layer components {
+  .heading-primary {
+    @apply font-poppins font-bold text-primary tracking-wide leading-tight;
+  }
+  
+  .heading-secondary {
+    @apply font-poppins font-semibold text-secondary tracking-wide;
+  }
+  
+  .body-text {
+    @apply font-roboto leading-relaxed text-gray-600 dark:text-gray-300;
+  }
+  
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900 transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 focus-ring;
+  }
+  
+  .btn-secondary {
+    @apply bg-accent text-white px-8 py-4 rounded-full font-semibold hover:bg-green-700 transform hover:-translate-y-1 transition-all duration-300 focus-ring;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-700 rounded-xl shadow-soft hover:shadow-glow transition-all duration-300 transform hover:-translate-y-2;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32 px-6 md:px-10 lg:px-16;
+  }
+  
+  .container-narrow {
+    @apply max-w-4xl mx-auto;
+  }
+  
+  .container-wide {
+    @apply max-w-6xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
 @font-face {
   font-family: "burtons";
   src: url("../public/Burtons.otf");
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improved focus styles */
+.focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+}
+
+/* Dark mode transitions */
+@media (prefers-reduced-motion: no-preference) {
+  .dark-mode-transition {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 }

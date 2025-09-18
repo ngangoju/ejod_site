@@ -29,8 +29,8 @@ export default function About() {
         <title>About Us - ƎJO-D</title>
         <meta name="description" content="Learn about ƎJO-D's mission, team, and expertise in 3D solutions for education and medical sectors." />
       </Head>
-      <section className="py-20 px-10">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="px-10">
+        <div className="max-w-4xl mx-auto text-center pt-28">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">About ƎJO-D</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
             ƎJO-D is a innovative tech company dedicated to bringing cutting-edge 3D solutions to the education and medical sectors. Our team of experts combines creativity and technical prowess to deliver immersive experiences that transform learning and healthcare.

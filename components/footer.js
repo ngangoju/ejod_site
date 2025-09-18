@@ -3,47 +3,69 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-10">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="text-center md:text-left">
-          <h3 className="text-xl font-bold text-primary mb-4">ƎJO-D</h3>
-          <p className="text-gray-300 mb-4">
-            Innovative 3D solutions for education and medical sectors. Transforming the future with technology.
-          </p>
-          <div className="flex justify-center md:justify-start gap-4 text-2xl">
-            <a href="#" aria-label="Twitter" className="hover:text-primary transition">
-              <AiFillTwitterCircle />
-            </a>
-            <a href="#" aria-label="LinkedIn" className="hover:text-primary transition">
-              <AiFillLinkedin />
-            </a>
-            <a href="#" aria-label="YouTube" className="hover:text-primary transition">
-              <AiFillYoutube />
-            </a>
+    <footer className="bg-dark-slate text-white py-16">
+      <div className="container-wide">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="md:col-span-2">
+            <Link href="/" className="inline-block mb-6">
+              <h3 className="text-3xl font-bold text-primary">ƎJO-D</h3>
+            </Link>
+            <p className="body-text text-gray-300 mb-6 max-w-md">
+              Innovative 3D solutions for education and medical sectors. Transforming the future with cutting-edge technology and immersive experiences.
+            </p>
+            <div className="flex gap-6 text-2xl">
+              <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-primary transition-colors duration-300 transform hover:scale-110">
+                <AiFillTwitterCircle />
+              </a>
+              <a href="#" aria-label="LinkedIn" className="text-gray-400 hover:text-primary transition-colors duration-300 transform hover:scale-110">
+                <AiFillLinkedin />
+              </a>
+              <a href="#" aria-label="YouTube" className="text-gray-400 hover:text-primary transition-colors duration-300 transform hover:scale-110">
+                <AiFillYoutube />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
+            <ul className="space-y-3">
+              <li><Link href="/" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Home</Link></li>
+              <li><Link href="/about" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">About</Link></li>
+              <li><Link href="/services" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Services</Link></li>
+              <li><Link href="/portfolio" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Portfolio</Link></li>
+              <li><Link href="/contact" className="text-gray-300 hover:text-primary transition-colors duration-300 block py-1">Contact</Link></li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-white">Contact Info</h4>
+            <div className="space-y-3 text-gray-300">
+              <p className="flex items-start">
+                <span className="font-medium mr-2">Phone:</span>
+                <span>(250) 786 686 - 391</span>
+              </p>
+              <p className="flex items-start">
+                <span className="font-medium mr-2">Email:</span>
+                <span>info@ejod.com</span>
+              </p>
+              <p className="flex items-start">
+                <span className="font-medium mr-2">Location:</span>
+                <span>Kigali, Rwanda</span>
+              </p>
+            </div>
+            <Link href="/contact" className="inline-block mt-6 text-accent hover:text-primary transition-colors duration-300 font-semibold group">
+              Send a Message <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
           </div>
         </div>
-        <div>
-          <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-          <ul className="space-y-2 text-gray-300">
-            <li><Link href="/" className="hover:text-primary transition">Home</Link></li>
-            <li><Link href="/about" className="hover:text-primary transition">About</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition">Services</Link></li>
-            <li><Link href="/portfolio" className="hover:text-primary transition">Portfolio</Link></li>
-            <li><Link href="/contact" className="hover:text-primary transition">Contact</Link></li>
-          </ul>
+
+        {/* Copyright */}
+        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+          <p>&copy; 2025 ƎJO-D. All rights reserved.</p>
         </div>
-        <div className="text-center md:text-left">
-          <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-          <p className="text-gray-300 mb-2">Phone: (250) 786 686 - 391</p>
-          <p className="text-gray-300 mb-2">Email: info@ejod.com</p>
-          <p className="text-gray-300">Kigali, Rwanda</p>
-          <Link href="/contact" className="block mt-4 text-accent hover:text-primary transition font-medium">
-            Send a Message →
-          </Link>
-        </div>
-      </div>
-      <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-300">
-        <p>&copy; 2025 ƎJO-D. All rights reserved.</p>
       </div>
     </footer>
   );
