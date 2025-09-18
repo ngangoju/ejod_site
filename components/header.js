@@ -69,36 +69,36 @@ function Header(props) {
             <div className="flex flex-col space-y-4">
               <Link 
                 href="/" 
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
                 onClick={() => setIsMenuOpen(false)}
+                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
                 Home
               </Link>
               <Link 
                 href="/about" 
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
                 onClick={() => setIsMenuOpen(false)}
+                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
                 About
               </Link>
               <Link 
                 href="/services" 
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
                 onClick={() => setIsMenuOpen(false)}
+                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
                 Services
               </Link>
               <Link 
                 href="/portfolio" 
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
                 onClick={() => setIsMenuOpen(false)}
+                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
                 Portfolio
               </Link>
               <Link 
                 href="/contact" 
-                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
                 onClick={() => setIsMenuOpen(false)}
+                className="text-dark-slate dark:text-gray-300 hover:text-primary dark:hover:text-accent font-medium transition-colors duration-300 py-2"
               >
                 Contact
               </Link>
@@ -115,8 +115,8 @@ function Header(props) {
                 
                 <Link 
                   href="#" 
-                  className="btn-primary text-sm px-4 py-2"
                   onClick={() => setIsMenuOpen(false)}
+                  className="btn-primary text-sm px-4 py-2"
                 >
                   Resume
                 </Link>
