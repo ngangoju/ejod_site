@@ -1,8 +1,8 @@
 import '../styles/globals.css'
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
-import Header from './components/header';
-import Footer from './components/footer';
+import Header from '../components/header';
+import Footer from '../components/footer';
 
 function MyApp({ Component, pageProps }) {
   const [isDarkMode, setDarkMode] = useState(false);

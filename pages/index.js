@@ -5,7 +5,7 @@ const Carousel = dynamic(() => import("react-multi-carousel"), { ssr: false });
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import { AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
-import { Md3dRotation, Md360, MdViewInAr } from "react-icons/md";
+import { Md3DRotation, Md360, MdViewInAr } from "react-icons/md";
 import Link from "next/link";
 
 const responsive = {
@@ -25,7 +25,7 @@ const responsive = {
 
 const services = [
   {
-    icon: Md3dRotation,
+    icon: Md3DRotation,
     title: "3D Modeling",
     description: "High-fidelity 3D models for educational tools and medical visualizations.",
   },
