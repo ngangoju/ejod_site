@@ -1,19 +1,19 @@
 import Head from "next/head";
-import { Md3DModeling, MdVrPanorama, MdSmartDisplay } from "react-icons/md";
+import { Md3DRotation, Md360, MdViewInAr } from "react-icons/md";
 
 const services = [
   {
-    icon: Md3DModeling,
+    icon: Md3DRotation,
     title: "3D Modeling",
     description: "We create high-fidelity 3D models for educational tools and medical visualizations, enabling interactive learning and precise anatomical representations.",
   },
   {
-    icon: MdVrPanorama,
+    icon: Md360,
     title: "VR Simulations",
     description: "Immersive virtual reality experiences for training in medical procedures and educational scenarios, providing safe and engaging environments.",
   },
   {
-    icon: MdSmartDisplay,
+    icon: MdViewInAr,
     title: "AR Tools",
     description: "Augmented reality applications that overlay digital information on the real world, revolutionizing classroom interactions and patient consultations.",
   },

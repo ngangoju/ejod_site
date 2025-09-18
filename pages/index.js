@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { useState } from "react";
-import Carousel from "react-multi-carousel";
+import dynamic from "next/dynamic";
+const Carousel = dynamic(() => import("react-multi-carousel"), { ssr: false });
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import { AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube } from "react-icons/ai";
-import { Md3DModeling, MdVrPanorama, MdSmartDisplay } from "react-icons/md";
+import { Md3dRotation, Md360, MdViewInAr } from "react-icons/md";
 import Link from "next/link";
 
 const responsive = {
@@ -24,17 +25,17 @@ const responsive = {
 
 const services = [
   {
-    icon: Md3DModeling,
+    icon: Md3dRotation,
     title: "3D Modeling",
     description: "High-fidelity 3D models for educational tools and medical visualizations.",
   },
   {
-    icon: MdVrPanorama,
+    icon: Md360,
     title: "VR Simulations",
     description: "Immersive VR experiences for medical training and educational scenarios.",
   },
   {
-    icon: MdSmartDisplay,
+    icon: MdViewInAr,
     title: "AR Tools",
     description: "Augmented reality apps overlaying digital info on the real world.",
   },

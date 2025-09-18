@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={}
+self.__REACT_LOADABLE_MANIFEST={"index.js -> react-multi-carousel":{"id":"index.js -> react-multi-carousel","files":["static/chunks/node_modules_react-multi-carousel_index_js.js"]}}
