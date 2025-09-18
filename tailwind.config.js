@@ -9,10 +9,13 @@ module.exports = {
     extend: {
       fontFamily: {
         burtons: "burtons",
+        poppins: ["Poppins", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
       },
       colors: {
-        primary: '#007BFF',
-        accent: '#28A745',
+        primary: '#1E3A8A',
+        accent: '#10B981',
+        'light-blue': '#F3F4F6',
       },
     },
   },
