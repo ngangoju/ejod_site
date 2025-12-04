@@ -27,10 +27,7 @@ const projects = [
     image: "/images/Medical_Anatomy_App.png",
     category: "vr",
     tags: ["VR", "Healthcare", "Education"],
-    impact: [
-      { stat: "500+", label: "Students trained" },
-      { stat: "40%", label: "Better retention" },
-    ],
+    features: ["3D Organ Models", "Layer Dissection", "Quiz Integration"],
     featured: true,
     hasInteractiveDemo: true,
     demoType: 'anatomy',
@@ -42,10 +39,7 @@ const projects = [
     image: "/images/School_VR_Tour.png",
     category: "vr",
     tags: ["VR", "Education"],
-    impact: [
-      { stat: "10,000+", label: "Virtual visits" },
-      { stat: "25%", label: "More applications" },
-    ],
+    features: ["360° Navigation", "Info Hotspots", "Guided Tours"],
     featured: true,
     hasInteractiveDemo: true,
     demoType: 'campus',
@@ -57,10 +51,7 @@ const projects = [
     image: "/images/Surgical_Training_Simulator.png",
     category: "ar",
     tags: ["AR", "Healthcare"],
-    impact: [
-      { stat: "60%", label: "Faster learning" },
-      { stat: "98%", label: "Accuracy rate" },
-    ],
+    features: ["AR Overlays", "Real-time Feedback", "Progress Tracking"],
     featured: true,
     hasInteractiveDemo: true,
     demoType: 'surgical',
@@ -182,14 +173,13 @@ export default function Portfolio() {
                       {project.description}
                     </p>
 
-                    {/* Impact Stats */}
-                    <div className="flex flex-wrap gap-6 mb-6">
-                      {project.impact.map((item, i) => (
-                        <div key={i} className="flex items-center gap-2">
-                          <BsCheck2Circle className="text-success-green text-lg" />
-                          <span className="text-gray-900 dark:text-white font-semibold">{item.stat}</span>
-                          <span className="text-gray-500 dark:text-silver-mist text-sm">{item.label}</span>
-                        </div>
+                    {/* Features */}
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.features.map((feature, i) => (
+                        <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1 bg-cosmic-purple/10 dark:bg-cosmic-purple/20 text-cosmic-purple rounded-full text-sm">
+                          <BsCheck2Circle className="text-xs" />
+                          {feature}
+                        </span>
                       ))}
                     </div>
 
@@ -225,33 +215,37 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Results Section */}
+      {/* Our Capabilities Section */}
       <section className="section-padding bg-gray-50 dark:bg-midnight/30">
         <div className="container-wide">
           <div className="section-header">
-            <span className="section-subtitle">Our Impact</span>
-            <h2 className="section-title">Measurable Results</h2>
+            <span className="section-subtitle">What We Offer</span>
+            <h2 className="section-title">Our Capabilities</h2>
             <p className="section-description">
-              Our projects deliver tangible outcomes that matter.
+              Cutting-edge technology solutions for education and healthcare.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-cosmic-purple mb-2">50+</div>
-              <div className="text-gray-500 dark:text-silver-mist">Projects Completed</div>
+              <div className="text-4xl md:text-5xl mb-4">🎯</div>
+              <div className="text-gray-900 dark:text-white font-semibold">VR Training</div>
+              <div className="text-gray-500 dark:text-silver-mist text-sm">Immersive simulations</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-cosmic-purple mb-2">15K+</div>
-              <div className="text-gray-500 dark:text-silver-mist">Users Trained</div>
+              <div className="text-4xl md:text-5xl mb-4">📱</div>
+              <div className="text-gray-900 dark:text-white font-semibold">AR Applications</div>
+              <div className="text-gray-500 dark:text-silver-mist text-sm">Overlay technology</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-cosmic-purple mb-2">30+</div>
-              <div className="text-gray-500 dark:text-silver-mist">Institutions Served</div>
+              <div className="text-4xl md:text-5xl mb-4">🎨</div>
+              <div className="text-gray-900 dark:text-white font-semibold">3D Visualization</div>
+              <div className="text-gray-500 dark:text-silver-mist text-sm">Interactive models</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-cosmic-purple mb-2">5</div>
-              <div className="text-gray-500 dark:text-silver-mist">Countries Reached</div>
+              <div className="text-4xl md:text-5xl mb-4">🏥</div>
+              <div className="text-gray-900 dark:text-white font-semibold">Healthcare Focus</div>
+              <div className="text-gray-500 dark:text-silver-mist text-sm">Medical-grade solutions</div>
             </div>
           </div>
         </div>

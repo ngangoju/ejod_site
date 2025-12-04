@@ -5,27 +5,28 @@ import { BsArrowRight, BsLightning, BsHeart, BsGlobe, BsLinkedin } from "react-i
 
 const leadershipTeam = [
   {
-    name: "Miguel Gasakure",
+    name: "Dr. Miguel Gasakure",
     role: "Chief Executive Officer",
     avatar: "/images/Miguel-Black-White.jpg",
-    bio: "Visionary leader driving EJOD's mission to transform education and healthcare through immersive technology.",
-    linkedin: "#",
+    bio: "Surgeon at CHUK Rwanda, honored as 'Best Professional and Ethical Employee' 2023-2024. Tech enthusiast and researcher dedicated to advancing healthcare through innovation.",
+    linkedin: "https://rw.linkedin.com/in/gasakure-miguel-648987176",
   },
   {
     name: "Igor Mazimpaka",
-    role: "Chief Operations Officer",
+    role: "Creative Director",
     avatar: "/images/Igor1.jpg",
-    bio: "Operations expert ensuring seamless project delivery and client satisfaction across all engagements.",
-    linkedin: "#",
+    bio: "Graphic designer, 3D Developer, CGI Engineer, and professional medical interpreter bringing creative vision to immersive healthcare solutions.",
+    linkedin: "https://rw.linkedin.com/in/igor-mazimpaka-ngango-923229bb",
   },
   {
     name: "Junior Ngango",
-    role: "Chief Technology Officer",
+    role: "Engineering Director",
     avatar: "/images/Jr-Black-White.jpg",
-    bio: "Software engineer constantly seeking creative solutions to complex challenges in XR development.",
-    linkedin: "#",
+    bio: "Senior Software Engineer with 7+ years experience. Bachelor's from AUCA. Previously at TRES Ltd, WYS Ltd, B-ONLINE Ltd, and currently at AOS Ltd.",
+    linkedin: "https://rw.linkedin.com/in/junior-ngango",
   },
 ];
+
 
 const values = [
   {
@@ -46,10 +47,9 @@ const values = [
 ];
 
 const milestones = [
-  { year: "2019", title: "Founded", description: "EJOD was established with a vision to revolutionize learning through technology." },
-  { year: "2020", title: "First VR Project", description: "Delivered our first VR training simulation for medical education." },
-  { year: "2022", title: "AR Expansion", description: "Expanded services to include augmented reality applications." },
-  { year: "2024", title: "Regional Impact", description: "Projects deployed across East African educational institutions." },
+  { year: "2023", title: "Founded", description: "EJOD was established with a vision to revolutionize learning through technology." },
+  { year: "2024", title: "First Projects", description: "Launched VR training and AR applications for education and healthcare." },
+  { year: "2025", title: "Growing Impact", description: "Expanding services across East African educational and medical institutions." },
 ];
 
 export default function About() {

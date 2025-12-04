@@ -32,7 +32,7 @@ const projects = [
     description: "Interactive VR application enabling medical students to explore human anatomy in stunning 3D detail.",
     image: "/images/Medical_Anatomy_App.png",
     category: "VR Education",
-    impact: "500+ students trained",
+    feature: "3D Layer Dissection",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const projects = [
     description: "Immersive VR tours allowing prospective students to experience campus life from anywhere in the world.",
     image: "/images/School_VR_Tour.png",
     category: "VR Experience",
-    impact: "10,000+ virtual visits",
+    feature: "360° Navigation",
   },
   {
     id: 3,
@@ -48,15 +48,15 @@ const projects = [
     description: "AR-powered surgical training platform improving procedure accuracy and reducing real-world risk.",
     image: "/images/Surgical_Training_Simulator.png",
     category: "AR Medical",
-    impact: "40% faster training",
+    feature: "Real-time Feedback",
   },
 ];
 
 const stats = [
-  { number: "50+", label: "Projects Delivered" },
-  { number: "98%", label: "Client Satisfaction" },
-  { number: "5+", label: "Years Experience" },
-  { number: "10K+", label: "Users Reached" },
+  { number: "🎯", label: "VR Training" },
+  { number: "📱", label: "AR Solutions" },
+  { number: "🎨", label: "3D Design" },
+  { number: "🏥", label: "Healthcare" },
 ];
 
 const values = [
@@ -235,7 +235,7 @@ export default function Home() {
                       <p className="text-silver-mist text-sm mb-4 line-clamp-2">{project.description}</p>
                       <div className="flex items-center gap-2 text-success-green text-sm font-medium">
                         <BsCheck2Circle />
-                        {project.impact}
+                        {project.feature}
                       </div>
                     </div>
                   </div>

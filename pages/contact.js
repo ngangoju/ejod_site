@@ -13,15 +13,7 @@ const projectTypes = [
   { value: "other", label: "Other" },
 ];
 
-const budgetRanges = [
-  { value: "", label: "Select budget range" },
-  { value: "under-10k", label: "Under $10,000" },
-  { value: "10k-25k", label: "$10,000 - $25,000" },
-  { value: "25k-50k", label: "$25,000 - $50,000" },
-  { value: "50k-100k", label: "$50,000 - $100,000" },
-  { value: "over-100k", label: "Over $100,000" },
-  { value: "not-sure", label: "Not sure yet" },
-];
+
 
 const reasons = [
   "Response within 24 hours",
@@ -36,7 +28,6 @@ export default function Contact() {
     email: "",
     organization: "",
     projectType: "",
-    budget: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -61,16 +52,33 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
     
     setIsSubmitting(true);
-    // Mock submission
-    setTimeout(() => {
-      setSubmitted(true);
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await response.json();
+        alert(data.message || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Failed to send message. Please try again or email us directly.');
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -160,44 +168,24 @@ export default function Contact() {
                       />
                     </div>
 
-                    {/* Project Type & Budget Row */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label htmlFor="projectType" className="block text-sm font-medium text-gray-600 dark:text-silver-mist mb-2">
-                          Project Type
-                        </label>
-                        <select
-                          id="projectType"
-                          name="projectType"
-                          value={formData.projectType}
-                          onChange={handleChange}
-                          className="form-input appearance-none cursor-pointer"
-                        >
-                          {projectTypes.map((type) => (
-                            <option key={type.value} value={type.value} className="bg-white dark:bg-midnight text-gray-900 dark:text-white">
-                              {type.label}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                      <div>
-                        <label htmlFor="budget" className="block text-sm font-medium text-gray-600 dark:text-silver-mist mb-2">
-                          Budget Range
-                        </label>
-                        <select
-                          id="budget"
-                          name="budget"
-                          value={formData.budget}
-                          onChange={handleChange}
-                          className="form-input appearance-none cursor-pointer"
-                        >
-                          {budgetRanges.map((range) => (
-                            <option key={range.value} value={range.value} className="bg-white dark:bg-midnight text-gray-900 dark:text-white">
-                              {range.label}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                    {/* Project Type */}
+                    <div>
+                      <label htmlFor="projectType" className="block text-sm font-medium text-gray-600 dark:text-silver-mist mb-2">
+                        Project Type
+                      </label>
+                      <select
+                        id="projectType"
+                        name="projectType"
+                        value={formData.projectType}
+                        onChange={handleChange}
+                        className="form-input appearance-none cursor-pointer"
+                      >
+                        {projectTypes.map((type) => (
+                          <option key={type.value} value={type.value} className="bg-white dark:bg-midnight text-gray-900 dark:text-white">
+                            {type.label}
+                          </option>
+                        ))}
+                      </select>
                     </div>
 
                     {/* Message */}
@@ -252,7 +240,7 @@ export default function Contact() {
                   <button
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({ name: "", email: "", organization: "", projectType: "", budget: "", message: "" });
+                      setFormData({ name: "", email: "", organization: "", projectType: "", message: "" });
                     }}
                     className="btn-secondary"
                   >
