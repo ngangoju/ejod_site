@@ -22,7 +22,7 @@ const leadershipTeam = [
     name: "Junior Ngango",
     role: "Engineering Director",
     avatar: "/images/Jr-Black-White.jpg",
-    bio: "Senior Software Engineer with 7+ years experience. Bachelor's from AUCA. Previously at TRES Ltd, WYS Ltd, B-ONLINE Ltd, and currently at AOS Ltd.",
+    bio: "Senior Software Engineer with 7+ years experience building enterprise solutions. Technical leader driving EJOD's XR development and innovation.",
     linkedin: "https://rw.linkedin.com/in/junior-ngango",
   },
 ];
