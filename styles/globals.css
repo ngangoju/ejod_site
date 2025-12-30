@@ -339,6 +339,176 @@ select {
   }
 }
 
+/* Premium Card with 3D depth effect */
+.premium-card {
+  @apply relative p-8 lg:p-10 overflow-hidden;
+  @apply bg-white dark:bg-midnight/50 backdrop-blur-xl border border-gray-100 dark:border-white/10 rounded-2xl;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(124, 58, 237, 0);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .premium-card {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(124, 58, 237, 0);
+}
+
+.premium-card:hover {
+  @apply border-cosmic-purple/30;
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.15), 0 0 0 1px rgba(124, 58, 237, 0.1);
+}
+
+.dark .premium-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(124, 58, 237, 0.25), 0 0 0 1px rgba(124, 58, 237, 0.2);
+}
+
+/* Elevated card with isometric shadow */
+.elevated-card {
+  @apply relative p-8 overflow-hidden;
+  @apply bg-white dark:bg-midnight/60 border border-gray-100 dark:border-white/10 rounded-2xl;
+  box-shadow: 8px 8px 0 0 rgba(124, 58, 237, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elevated-card:hover {
+  box-shadow: 12px 12px 0 0 rgba(124, 58, 237, 0.12);
+  transform: translate(-4px, -4px);
+}
+
+/* Isometric badge for 3D effect */
+.isometric-badge {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold;
+  @apply bg-cosmic-purple/10 text-cosmic-purple border border-cosmic-purple/20;
+  box-shadow: 3px 3px 0 0 rgba(124, 58, 237, 0.15);
+  transition: all 0.3s ease;
+}
+
+.isometric-badge:hover {
+  box-shadow: 5px 5px 0 0 rgba(124, 58, 237, 0.2);
+  transform: translate(-2px, -2px);
+}
+
+/* Testimonial card */
+.testimonial-card {
+  @apply relative p-8 rounded-2xl;
+  @apply bg-white dark:bg-midnight/50 border border-gray-100 dark:border-white/10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card::before {
+  content: '"';
+  @apply absolute top-4 left-6 text-6xl font-bold text-cosmic-purple/10;
+  line-height: 1;
+}
+
+.testimonial-card .testimonial-content {
+  @apply text-gray-600 dark:text-silver-mist text-lg leading-relaxed mb-6;
+}
+
+.testimonial-card .testimonial-author {
+  @apply flex items-center gap-4;
+}
+
+.testimonial-card .author-avatar {
+  @apply w-12 h-12 rounded-full bg-cosmic-purple/10 flex items-center justify-center;
+}
+
+.testimonial-card .author-info h4 {
+  @apply text-gray-900 dark:text-white font-semibold;
+}
+
+.testimonial-card .author-info p {
+  @apply text-gray-500 dark:text-silver-mist text-sm;
+}
+
+/* Trust badge row */
+.trust-badges {
+  @apply flex flex-wrap items-center justify-center gap-8 py-8;
+}
+
+.trust-badge {
+  @apply flex items-center gap-3 px-6 py-3 rounded-full;
+  @apply bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/10;
+  transition: all 0.3s ease;
+}
+
+.trust-badge:hover {
+  @apply border-cosmic-purple/30 bg-cosmic-purple/5;
+}
+
+/* Partner logos grid */
+.partner-logos {
+  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center;
+}
+
+.partner-logo {
+  @apply h-8 opacity-40 grayscale transition-all duration-300;
+}
+
+.partner-logo:hover {
+  @apply opacity-100 grayscale-0;
+}
+
+/* Stats counter card */
+.stat-counter {
+  @apply text-center p-8 rounded-2xl;
+  @apply bg-white dark:bg-midnight/30 border border-gray-100 dark:border-white/5;
+}
+
+.stat-counter .counter-value {
+  @apply text-5xl lg:text-6xl font-bold text-cosmic-purple mb-2;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-counter .counter-label {
+  @apply text-gray-500 dark:text-silver-mist text-sm uppercase tracking-wider;
+}
+
+/* Feature list item */
+.feature-item {
+  @apply flex items-start gap-4 p-4 rounded-xl transition-all duration-300;
+}
+
+.feature-item:hover {
+  @apply bg-cosmic-purple/5;
+}
+
+.feature-item .feature-icon {
+  @apply w-10 h-10 rounded-xl bg-cosmic-purple/10 flex items-center justify-center flex-shrink-0;
+}
+
+.feature-item .feature-icon svg {
+  @apply text-cosmic-purple text-lg;
+}
+
+/* Accent border animation */
+.accent-border {
+  @apply relative;
+}
+
+.accent-border::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-cosmic-purple transition-all duration-500;
+}
+
+.accent-border:hover::after {
+  @apply w-full;
+}
+
+/* Dot pattern background */
+.dot-pattern-bg {
+  background-image: radial-gradient(circle, rgba(124, 58, 237, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Grid pattern background */
+.grid-pattern-bg {
+  background-image:
+    linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+
 @layer utilities {
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -444,7 +614,7 @@ select {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, #0a0e1a 0%, #1e1b4b 100%);
+  background-color: #0A0E1A;
   color: #fff;
 }
 
@@ -463,11 +633,7 @@ select {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #fff;
-  background: linear-gradient(135deg, #7c3aed, #06b6d4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #7C3AED;
 }
 
 .anatomy-title p {
