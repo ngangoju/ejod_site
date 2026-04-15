@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { BsList, BsX, BsArrowRight, BsSun, BsMoon, BsLightning } from "react-icons/bs";
+import BrandLogo from "./BrandLogo";
 
 function Header({ toggleDarkMode, isDarkMode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,11 +43,10 @@ function Header({ toggleDarkMode, isDarkMode }) {
       <div className="container-wide">
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
-            <span className="text-2xl md:text-3xl font-bold tracking-wider cursor-pointer relative">
-              <span className="text-brand-orange group-hover:opacity-80 transition-opacity">ƎJO-D</span>
-              <span className="absolute -inset-2 bg-brand-orange/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-            </span>
+          <Link href="/" aria-label="EJOD home" className="flex items-center group">
+            <div className="w-[140px] md:w-[180px] relative group-hover:opacity-80 transition-opacity duration-300">
+              <BrandLogo className="w-full h-auto text-gray-900 dark:text-white transition-transform duration-500 group-hover:scale-[1.02]" />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

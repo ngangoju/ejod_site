@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 140">
+  <defs>
+    <linearGradient id="warm" x1="14" x2="108" y1="18" y2="118" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FF8A5B" />
+      <stop offset="0.55" stop-color="#FF6B35" />
+      <stop offset="1" stop-color="#F59E0B" />
+    </linearGradient>
+    <linearGradient id="cool" x1="18" x2="104" y1="18" y2="18" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#06B6D4" />
+      <stop offset="1" stop-color="#7DD3FC" />
+    </linearGradient>
+    <linearGradient id="shell" x1="24" x2="102" y1="16" y2="122" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1E293B" />
+      <stop offset="1" stop-color="#0A0E1A" />
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#FF6B35" flood-opacity="0.22" />
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#06B6D4" flood-opacity="0.18" />
+    </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <circle cx="64" cy="64" r="52" fill="#FF6B35" opacity="0.08" />
+    <path d="M22 36A50 50 0 0 1 97 21" fill="none" stroke="url(#cool)" stroke-width="4" stroke-linecap="round" opacity="0.9" />
+    <path d="M31 107A50 50 0 0 0 104 91" fill="none" stroke="url(#cool)" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+    <circle cx="100" cy="24" r="5" fill="#06B6D4" />
+    <circle cx="22" cy="105" r="4.5" fill="#F59E0B" opacity="0.9" />
+    <polygon points="64,6 118,37 118,99 64,130 10,99 10,37" fill="url(#shell)" stroke="url(#warm)" stroke-width="4.5" stroke-linejoin="round" />
+    <polygon points="64,18 106,42 106,94 64,118 22,94 22,42" fill="#FFFFFF" opacity="0.05" />
+    <path d="M22 41L64 17L106 41" fill="none" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="2" stroke-linecap="round" />
+    <g transform="translate(34 41) scale(0.56)">
+      <path fill="url(#warm)" d="M 15 0 L 70 0 A 30 30 0 0 1 100 30 L 100 70 A 30 30 0 0 1 70 100 L 15 100 L 25 80 L 70 80 A 10 10 0 0 0 80 70 L 80 60 L 30 60 L 30 40 L 80 40 L 80 30 A 10 10 0 0 0 70 20 L 25 20 Z" />
+      <path d="M20 22L68 22A8 8 0 0 1 76 30" fill="none" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="6" stroke-linecap="round" />
+      <path d="M36 50L82 50" fill="none" stroke="url(#cool)" stroke-width="7" stroke-linecap="round" />
+    </g>
+  </g>
+</svg>

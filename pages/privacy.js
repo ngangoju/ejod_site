@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 
 export default function PrivacyPolicy() {
   return (
@@ -35,7 +36,7 @@ export default function PrivacyPolicy() {
 
             <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900 dark:text-white">4. Contact Us</h2>
             <p className="text-gray-600 dark:text-silver-mist mb-4">
-              If you have any questions about this Privacy Policy, please contact us via our <a href="/contact" className="text-brand-orange hover:underline">Contact form</a>.
+              If you have any questions about this Privacy Policy, please contact us via our <Link href="/contact" className="text-brand-orange hover:underline">Contact form</Link>.
             </p>
           </div>
         </div>

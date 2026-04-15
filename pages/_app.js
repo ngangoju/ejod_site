@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="EJOD creates cutting-edge VR, AR, and 3D solutions that transform education and healthcare." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content={isDarkMode ? "#0A0E1A" : "#FFFFFF"} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         {/* Open Graph and SEO */}
         <link rel="canonical" href="https://ejod.com" />
         <meta property="og:title" content="ƎJO-D | Immersive 3D & XR Experiences" />

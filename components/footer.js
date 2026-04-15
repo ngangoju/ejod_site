@@ -1,6 +1,7 @@
 import { AiFillTwitterCircle, AiFillLinkedin, AiFillYoutube, AiFillInstagram } from "react-icons/ai";
 import { BsArrowRight, BsEnvelope, BsPhone, BsGeoAlt, BsLightning, BsHeart } from "react-icons/bs";
 import Link from "next/link";
+import BrandLogo from "./BrandLogo";
 
 export default function Footer({ isDarkMode }) {
   const currentYear = new Date().getFullYear();
@@ -67,9 +68,9 @@ export default function Footer({ isDarkMode }) {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/">
-              <span className="inline-block text-3xl font-bold text-brand-orange mb-6 cursor-pointer hover:opacity-80 transition-opacity">
-                ƎJO-D
-              </span>
+              <div className="w-[180px] md:w-[220px] mb-6 cursor-pointer hover:opacity-80 transition-opacity duration-300">
+                <BrandLogo className="w-full h-auto text-gray-900 dark:text-white" />
+              </div>
             </Link>
             <p className="text-gray-600 dark:text-silver-mist mb-6 leading-relaxed">
               Pioneering immersive 3D, VR, and AR experiences that transform education and healthcare across Africa.
