@@ -27,8 +27,8 @@ function IncisionPath({ points, onProgress }) {
         >
           <sphereGeometry args={[0.15, 16, 16]} />
           <meshStandardMaterial
-            color={completed.has(i) ? '#10b981' : '#ef4444'}
-            emissive={completed.has(i) ? '#10b981' : '#ef4444'}
+            color={completed.has(i) ? '#2dd4bf' : '#ef4444'}
+            emissive={completed.has(i) ? '#2dd4bf' : '#ef4444'}
             emissiveIntensity={0.5}
             transparent
             opacity={0.8}
@@ -56,6 +56,7 @@ function SurgicalTool() {
   const { viewport, mouse } = useThree();
 
   useFrame(() => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (ref.current) {
       const x = (mouse.x * viewport.width) / 2;
       const y = (mouse.y * viewport.height) / 2;
@@ -136,7 +137,7 @@ export default function SurgicalSimulator({ onClose }) {
           <h2>Surgical Skills Simulator</h2>
           <p>AR Training Module • Follow the incision path</p>
         </div>
-        <button className="anatomy-close" onClick={onClose}>✕</button>
+        <button className="anatomy-close" onClick={onClose} aria-label="Close">✕</button>
       </div>
 
       <div className="anatomy-content">

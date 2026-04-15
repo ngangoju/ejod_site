@@ -33,7 +33,7 @@ const organData = {
     name: "Kidneys",
     description: "Filter blood, remove waste, balance fluids, and produce urine.",
     facts: ["Filter 200L of blood daily", "Produce 1-2L of urine", "Each contains 1M nephrons"],
-    color: "#7c3aed"
+    color: "#ff6b35"
   },
   stomach: {
     name: "Stomach",
@@ -55,6 +55,7 @@ function Heart({ position, onClick, isSelected, isVisible }) {
   const [hovered, setHovered] = useState(false);
   
   useFrame((state) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (meshRef.current && isVisible) {
       // Pulsing animation
       const pulse = 1 + Math.sin(state.clock.elapsedTime * 4) * 0.05;
@@ -96,6 +97,7 @@ function Brain({ position, onClick, isSelected, isVisible }) {
   const [hovered, setHovered] = useState(false);
 
   useFrame((state) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (meshRef.current && isVisible) {
       meshRef.current.rotation.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.1;
     }
@@ -135,6 +137,7 @@ function Lungs({ position, onClick, isSelected, isVisible }) {
   const groupRef = useRef();
 
   useFrame((state) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (groupRef.current && isVisible) {
       // Breathing animation
       const breath = 1 + Math.sin(state.clock.elapsedTime * 1.5) * 0.08;
@@ -211,7 +214,7 @@ function Kidneys({ position, onClick, isSelected, isVisible }) {
   const kidneyMaterial = (
     <meshStandardMaterial
       color={isSelected ? "#9333ea" : organData.kidneys.color}
-      emissive={hovered || isSelected ? "#7c3aed" : "#110022"}
+      emissive={hovered || isSelected ? "#ff6b35" : "#110022"}
       emissiveIntensity={hovered || isSelected ? 0.6 : 0.2}
       roughness={0.4}
       metalness={0.1}
@@ -245,6 +248,7 @@ function Stomach({ position, onClick, isSelected, isVisible }) {
   const meshRef = useRef();
 
   useFrame((state) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     if (meshRef.current && isVisible) {
       // Subtle movement
       meshRef.current.rotation.z = Math.sin(state.clock.elapsedTime * 0.8) * 0.05;
@@ -387,7 +391,7 @@ function AnatomyScene({ selectedOrgan, setSelectedOrgan, visibleLayers }) {
       {/* Lighting */}
       <ambientLight intensity={0.4} />
       <pointLight position={[10, 10, 10]} intensity={1.5} color="#ffffff" />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#7c3aed" />
+      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#ff6b35" />
       <spotLight position={[0, 10, 0]} intensity={1} angle={0.6} penumbra={0.5} color="#ffffff" />
 
       {/* Camera controls */}
@@ -575,7 +579,14 @@ export default function AnatomyExplorer({ onClose }) {
           <span>📚 Educational Content</span>
           <span>🎓 VR Ready</span>
         </div>
-        <button className="anatomy-cta">
+        <button 
+          className="anatomy-cta"
+          onClick={() => {
+            onClose();
+            window.location.href = '/contact';
+          }}
+          aria-label="Request a full demo of the Medical Anatomy Explorer"
+        >
           Request Full Demo
         </button>
       </div>

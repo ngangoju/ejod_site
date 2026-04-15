@@ -36,7 +36,7 @@ const values = [
     icon: BsLightning,
     title: "Innovation",
     description: "We push the boundaries of what's possible with emerging technologies, staying ahead of the curve to deliver cutting-edge solutions.",
-    color: "bg-cosmic-purple",
+    color: "bg-brand-orange",
   },
   {
     icon: BsHeart,
@@ -82,7 +82,7 @@ const stats = [
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white dark:bg-deep-space transition-colors duration-300">
+    <main className="min-h-screen bg-white dark:bg-deep-space transition-colors duration-300">
       <Head>
         <title>About Us | ƎJO-D - Pioneers in Immersive Technology</title>
         <meta name="description" content="Learn about EJOD's mission, team, and expertise in creating transformative 3D, VR, and AR solutions for education and healthcare." />
@@ -97,13 +97,13 @@ export default function About() {
         <div className="container-wide relative z-10">
           <div className="max-w-3xl">
             <div className="isometric-badge mb-6">
-              <BsGlobe className="text-cosmic-purple" />
+              <BsGlobe className="text-brand-orange" />
               <span>Our Story</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Pioneers in
               <br />
-              <span className="text-cosmic-purple">Immersive Technology</span>
+              <span className="text-brand-orange">Immersive Technology</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-silver-mist leading-relaxed">
               We're a team of engineers, designers, and educators passionate about transforming how the world learns and heals through cutting-edge XR technology.
@@ -118,7 +118,7 @@ export default function About() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-cosmic-purple mb-2">{stat.value}</div>
+                <div className="text-4xl md:text-5xl font-bold text-brand-orange mb-2">{stat.value}</div>
                 <div className="text-gray-500 dark:text-silver-mist text-sm uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
@@ -143,16 +143,12 @@ export default function About() {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Link href="/services">
-                  <span className="btn-primary cursor-pointer group">
-                    Our Services
-                    <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                <Link href="/services" className="btn-primary group">
+                  Our Services
+                  <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link href="/portfolio">
-                  <span className="btn-secondary cursor-pointer">
-                    View Our Work
-                  </span>
+                <Link href="/portfolio" className="btn-secondary">
+                  View Our Work
                 </Link>
               </div>
             </div>
@@ -163,7 +159,8 @@ export default function About() {
                   <Image
                     src="/images/Medical_Anatomy_App.png"
                     alt="EJOD immersive experience"
-                    layout="fill"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-deep-space/60"></div>
@@ -175,7 +172,7 @@ export default function About() {
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-2xl bg-cosmic-purple opacity-10 dark:opacity-20"></div>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 rounded-2xl bg-brand-orange opacity-10 dark:opacity-20"></div>
               <div className="absolute -top-4 -left-4 w-24 h-24 rounded-2xl bg-neon-cyan opacity-10 dark:opacity-20"></div>
             </div>
           </div>
@@ -209,7 +206,7 @@ export default function About() {
 
       {/* Team Section - Premium */}
       <section className="section-padding bg-white dark:bg-transparent relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-cosmic-purple/5 dark:bg-cosmic-purple/10 blur-[150px]"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-brand-orange/5 dark:bg-brand-orange/10 blur-[150px]"></div>
         <div className="absolute inset-0 grid-pattern-bg opacity-50"></div>
         
         <div className="container-wide relative z-10">
@@ -229,7 +226,8 @@ export default function About() {
                   <Image
                     src={member.avatar}
                     alt={member.name}
-                    layout="fill"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-deep-space/20 group-hover:bg-deep-space/10 transition-colors"></div>
@@ -239,23 +237,23 @@ export default function About() {
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 dark:bg-midnight/90 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-cosmic-purple hover:text-white shadow-lg"
+                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 dark:bg-midnight/90 backdrop-blur-sm border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-brand-orange hover:text-white shadow-lg"
                     aria-label={`${member.name}'s LinkedIn`}
                   >
-                    <BsLinkedin className="text-cosmic-purple group-hover:text-current" />
+                    <BsLinkedin className="text-brand-orange group-hover:text-current" />
                   </a>
                 </div>
                 
                 {/* Content */}
                 <div className="px-2">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{member.name}</h3>
-                  <p className="text-cosmic-purple font-semibold mb-3">{member.role}</p>
+                  <p className="text-brand-orange font-semibold mb-3">{member.role}</p>
                   <p className="text-gray-600 dark:text-silver-mist text-sm mb-4">{member.bio}</p>
                   
                   {/* Expertise tags */}
                   <div className="flex flex-wrap gap-2">
                     {member.expertise.map((skill, i) => (
-                      <span key={i} className="px-2 py-1 bg-cosmic-purple/5 dark:bg-cosmic-purple/10 text-cosmic-purple rounded text-xs font-medium">
+                      <span key={i} className="px-2 py-1 bg-brand-orange/5 dark:bg-brand-orange/10 text-brand-orange rounded text-xs font-medium">
                         {skill}
                       </span>
                     ))}
@@ -282,17 +280,17 @@ export default function About() {
                 <div key={index} className="relative pl-16 pb-12 last:pb-0 group">
                   {/* Timeline line */}
                   {index < milestones.length - 1 && (
-                    <div className="absolute left-6 top-14 bottom-0 w-0.5 bg-cosmic-purple/20"></div>
+                    <div className="absolute left-6 top-14 bottom-0 w-0.5 bg-brand-orange/20"></div>
                   )}
                   
                   {/* Timeline icon */}
-                  <div className="absolute left-0 top-0 w-12 h-12 rounded-xl bg-cosmic-purple flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <div className="absolute left-0 top-0 w-12 h-12 rounded-xl bg-brand-orange flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                     <Icon className="text-white text-xl" />
                   </div>
                   
                   {/* Content */}
                   <div className="premium-card ml-4">
-                    <span className="inline-block px-3 py-1 bg-cosmic-purple/10 text-cosmic-purple rounded-full text-sm font-bold mb-3">{milestone.year}</span>
+                    <span className="inline-block px-3 py-1 bg-brand-orange/10 text-brand-orange rounded-full text-sm font-bold mb-3">{milestone.year}</span>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{milestone.title}</h3>
                     <p className="text-gray-600 dark:text-silver-mist">{milestone.description}</p>
                   </div>
@@ -307,33 +305,29 @@ export default function About() {
       <section className="section-padding bg-white dark:bg-transparent relative">
         <div className="absolute inset-0 dot-pattern-bg opacity-30"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] rounded-full bg-cosmic-purple/5 dark:bg-cosmic-purple/10 blur-[150px]"></div>
+          <div className="w-[600px] h-[600px] rounded-full bg-brand-orange/5 dark:bg-brand-orange/10 blur-[150px]"></div>
         </div>
         
         <div className="container-narrow relative z-10 text-center">
           <div className="isometric-badge mx-auto mb-8">
-            <BsHeart className="text-cosmic-purple" />
+            <BsHeart className="text-brand-orange" />
             <span>Join us</span>
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Ready to Join Our
-            <span className="text-cosmic-purple"> Journey?</span>
+            <span className="text-brand-orange"> Journey?</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-silver-mist mb-10 max-w-2xl mx-auto">
             Whether you're looking to collaborate on a project or join our team, we'd love to hear from you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact">
-              <span className="btn-primary cursor-pointer group">
-                Get in Touch
-                <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
-              </span>
+            <Link href="/contact" className="btn-primary group">
+              Get in Touch
+              <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/portfolio">
-              <span className="btn-secondary cursor-pointer">
-                See Our Work
-              </span>
+            <Link href="/portfolio" className="btn-secondary">
+              See Our Work
             </Link>
           </div>
           
@@ -354,6 +348,6 @@ export default function About() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

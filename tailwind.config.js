@@ -8,17 +8,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
         burtons: "burtons",
       },
       colors: {
         // Primary palette - Dark futuristic theme
         'deep-space': '#0A0E1A',
         'midnight': '#1E293B',
-        'cosmic-purple': '#7C3AED',
+        'brand-orange': '#FF6B35',
         'neon-cyan': '#06B6D4',
         'silver-mist': '#94A3B8',
-        'success-green': '#10B981',
+        'success-green': '#2DD4BF',
         
         // Accent colors for premium feel
         'accent-gold': '#F59E0B',
@@ -27,9 +27,9 @@ module.exports = {
         'slate-light': '#CBD5E1',
         
         // Legacy support (mapped to new palette)
-        primary: '#7C3AED',
+        primary: '#FF6B35',
         secondary: '#06B6D4',
-        accent: '#10B981',
+        accent: '#2DD4BF',
         'dark-slate': '#1E293B',
         'light-blue': '#0F172A',
         'tech-blue': '#1E3A5F',
@@ -50,25 +50,25 @@ module.exports = {
       },
       boxShadow: {
         'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'glow': '0 0 20px rgba(124, 58, 237, 0.3)',
-        'glow-lg': '0 0 40px rgba(124, 58, 237, 0.4)',
+        'glow': '0 0 20px rgba(255, 107, 53, 0.3)',
+        'glow-lg': '0 0 40px rgba(255, 107, 53, 0.4)',
         'glow-cyan': '0 0 20px rgba(6, 182, 212, 0.3)',
-        'glow-intense': '0 0 60px rgba(124, 58, 237, 0.5), 0 0 100px rgba(6, 182, 212, 0.3)',
+        'glow-intense': '0 0 60px rgba(255, 107, 53, 0.5), 0 0 100px rgba(6, 182, 212, 0.3)',
         'card': '0 4px 20px rgba(0, 0, 0, 0.25)',
-        'card-hover': '0 8px 40px rgba(124, 58, 237, 0.2)',
+        'card-hover': '0 8px 40px rgba(255, 107, 53, 0.2)',
         // 3D-inspired depth shadows
         'depth': '0 10px 40px -10px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1)',
         'depth-lg': '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 12px 24px -8px rgba(0, 0, 0, 0.15)',
-        'isometric': '8px 8px 0 0 rgba(124, 58, 237, 0.15)',
-        'isometric-lg': '12px 12px 0 0 rgba(124, 58, 237, 0.2)',
+        'isometric': '8px 8px 0 0 rgba(255, 107, 53, 0.15)',
+        'isometric-lg': '12px 12px 0 0 rgba(255, 107, 53, 0.2)',
         'elevated': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         'elevated-lg': '0 25px 50px -12px rgba(0, 0, 0, 0.15)',
-        'inner-glow': 'inset 0 2px 4px 0 rgba(124, 58, 237, 0.1)',
+        'inner-glow': 'inset 0 2px 4px 0 rgba(255, 107, 53, 0.1)',
       },
       backgroundImage: {
         // Gradients removed for flat design - using patterns instead
-        'dot-pattern': 'radial-gradient(circle, rgba(124, 58, 237, 0.1) 1px, transparent 1px)',
-        'grid-pattern': 'linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(124, 58, 237, 0.05) 1px, transparent 1px)',
+        'dot-pattern': 'radial-gradient(circle, rgba(255, 107, 53, 0.1) 1px, transparent 1px)',
+        'grid-pattern': 'linear-gradient(rgba(255, 107, 53, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 107, 53, 0.05) 1px, transparent 1px)',
       },
       backgroundSize: {
         'dot-sm': '20px 20px',
@@ -117,8 +117,8 @@ module.exports = {
           '50%': { transform: 'translateY(-20px) rotate(3deg)' },
         },
         pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(124, 58, 237, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(124, 58, 237, 0.6), 0 0 60px rgba(6, 182, 212, 0.3)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(255, 107, 53, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(255, 107, 53, 0.6), 0 0 60px rgba(6, 182, 212, 0.3)' },
         },
         reveal: {
           '0%': { opacity: '0', transform: 'translateY(20px) scale(0.95)' },

@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "anatomy:check-asset": "node scripts/validate-anatomy-asset.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^9.88.17",
     "@react-three/fiber": "^8.15.19",
+    "@react-three/postprocessing": "^2.19.1",
     "autoprefixer": "^10.4.12",
     "next": "^15.5.7",
     "nodemailer": "^7.0.11",
@@ -24,6 +26,13 @@
   },
   "devDependencies": {
     "eslint": "8.25.0",
-    "eslint-config-next": "12.3.1"
+    "eslint-config-next": "15.5.7"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "core-js",
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }

@@ -44,8 +44,8 @@ function Header({ toggleDarkMode, isDarkMode }) {
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <span className="text-2xl md:text-3xl font-bold tracking-wider cursor-pointer relative">
-              <span className="text-cosmic-purple group-hover:opacity-80 transition-opacity">ƎJO-D</span>
-              <span className="absolute -inset-2 bg-cosmic-purple/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+              <span className="text-brand-orange group-hover:opacity-80 transition-opacity">ƎJO-D</span>
+              <span className="absolute -inset-2 bg-brand-orange/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
             </span>
           </Link>
 
@@ -55,12 +55,12 @@ function Header({ toggleDarkMode, isDarkMode }) {
               <Link key={link.href} href={link.href}>
                 <span className={`relative font-medium py-2 cursor-pointer transition-colors duration-300 group ${
                   isActive(link.href) 
-                    ? 'text-cosmic-purple' 
-                    : 'text-gray-600 dark:text-silver-mist hover:text-cosmic-purple dark:hover:text-white'
+                    ? 'text-brand-orange' 
+                    : 'text-gray-600 dark:text-silver-mist hover:text-brand-orange dark:hover:text-white'
                 }`}>
                   {link.label}
                   {/* Active indicator */}
-                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-cosmic-purple transition-all duration-300 ${
+                  <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand-orange transition-all duration-300 ${
                     isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}></span>
                 </span>
@@ -73,19 +73,19 @@ function Header({ toggleDarkMode, isDarkMode }) {
             {/* Theme Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-3 rounded-full bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-cosmic-purple focus:ring-offset-2"
+              className="p-3 rounded-full bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2"
               aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
               {isDarkMode ? (
                 <BsSun className="text-xl text-accent-gold group-hover:rotate-45 transition-transform duration-300" />
               ) : (
-                <BsMoon className="text-xl text-cosmic-purple group-hover:-rotate-12 transition-transform duration-300" />
+                <BsMoon className="text-xl text-brand-orange group-hover:-rotate-12 transition-transform duration-300" />
               )}
             </button>
 
             {/* CTA Button */}
             <Link href="/contact">
-              <span className="inline-flex items-center gap-2 px-6 py-3 bg-cosmic-purple text-white rounded-full font-semibold text-sm cursor-pointer transition-all duration-300 hover:shadow-glow hover:translate-y-[-2px] group">
+              <span className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange text-white rounded-full font-semibold text-sm cursor-pointer transition-all duration-300 hover:shadow-glow hover:translate-y-[-2px] group">
                 <BsLightning className="text-accent-gold" />
                 Start Project
                 <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -103,12 +103,12 @@ function Header({ toggleDarkMode, isDarkMode }) {
               {isDarkMode ? (
                 <BsSun className="text-lg text-accent-gold" />
               ) : (
-                <BsMoon className="text-lg text-cosmic-purple" />
+                <BsMoon className="text-lg text-brand-orange" />
               )}
             </button>
 
             <button
-              className="p-2 rounded-xl text-gray-600 dark:text-silver-mist hover:text-cosmic-purple dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cosmic-purple"
+              className="p-2 rounded-xl text-gray-600 dark:text-silver-mist hover:text-brand-orange dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-orange"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
@@ -139,8 +139,8 @@ function Header({ toggleDarkMode, isDarkMode }) {
                     onClick={() => setIsMenuOpen(false)}
                     className={`block font-medium py-3 px-4 rounded-xl transition-all duration-300 cursor-pointer ${
                       isActive(link.href)
-                        ? 'bg-cosmic-purple/10 text-cosmic-purple'
-                        : 'text-gray-600 dark:text-silver-mist hover:text-cosmic-purple dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5'
+                        ? 'bg-brand-orange/10 text-brand-orange'
+                        : 'text-gray-600 dark:text-silver-mist hover:text-brand-orange dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5'
                     }`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
@@ -152,7 +152,7 @@ function Header({ toggleDarkMode, isDarkMode }) {
             
             <div className="pt-4 mt-4 border-t border-gray-200 dark:border-white/10">
               <Link href="/contact" legacyBehavior>
-                <a onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full py-3 bg-cosmic-purple text-white rounded-xl font-semibold cursor-pointer hover:bg-cosmic-purple/90 transition-colors">
+                <a onClick={() => setIsMenuOpen(false)} className="flex items-center justify-center gap-2 w-full py-3 bg-brand-orange text-white rounded-xl font-semibold cursor-pointer hover:bg-brand-orange/90 transition-colors">
                   <BsLightning className="text-accent-gold" />
                   Start Your Project
                 </a>

@@ -45,7 +45,7 @@ const buildings = [
     id: 'center', 
     name: 'Student Center', 
     position: [1.5, 0.8, 2], 
-    color: '#8b5cf6', 
+    color: '#f97316', 
     description: 'The heart of campus life and activities.',
     interior: {
       features: ['Food court', 'Student organizations', 'Event spaces', 'Career services'],
@@ -212,6 +212,8 @@ function InteriorView({ building, onBack }) {
           <button 
             className="px-6 py-3 rounded-full font-medium text-white transition-all hover:scale-105"
             style={{ backgroundColor: building.color }}
+            onClick={() => window.location.href = '/contact'}
+            aria-label={`Start virtual tour of ${building.name}`}
           >
             Start Virtual Tour
           </button>
@@ -242,7 +244,7 @@ export default function CampusExplorer({ onClose }) {
           <h2>Campus Virtual Tour</h2>
           <p>Explore our digital twin campus • Click buildings for info</p>
         </div>
-        <button className="anatomy-close" onClick={onClose}>✕</button>
+        <button className="anatomy-close" onClick={onClose} aria-label="Close">✕</button>
       </div>
 
       <div className="anatomy-content relative">

@@ -15,7 +15,7 @@ const services = [
       "Interactive 3D diagrams",
       "Cross-platform compatibility",
     ],
-    color: "bg-cosmic-purple",
+    color: "bg-brand-orange",
     stats: { value: "40%", label: "faster learning" },
   },
   {
@@ -112,7 +112,7 @@ const process = [
 
 export default function Services() {
   return (
-    <div className="min-h-screen bg-white dark:bg-deep-space transition-colors duration-300">
+    <main className="min-h-screen bg-white dark:bg-deep-space transition-colors duration-300">
       <Head>
         <title>Services | ƎJO-D - 3D, VR & AR Solutions</title>
         <meta name="description" content="Explore our comprehensive 3D visualization, VR training, and AR application services for education and healthcare sectors." />
@@ -122,18 +122,18 @@ export default function Services() {
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 mesh-bg-light dark:mesh-bg"></div>
         <div className="absolute inset-0 dot-pattern-bg opacity-30 dark:opacity-20"></div>
-        <div className="absolute top-20 right-1/4 w-96 h-96 rounded-full bg-cosmic-purple/10 dark:bg-cosmic-purple/15 blur-[120px]"></div>
+        <div className="absolute top-20 right-1/4 w-96 h-96 rounded-full bg-brand-orange/10 dark:bg-brand-orange/15 blur-[120px]"></div>
         
         <div className="container-wide relative z-10">
           <div className="max-w-3xl">
             <div className="isometric-badge mb-6">
-              <BsLightning className="text-cosmic-purple" />
+              <BsLightning className="text-brand-orange" />
               <span>Our Expertise</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Technology That
               <br />
-              <span className="text-cosmic-purple">Drives Results</span>
+              <span className="text-brand-orange">Drives Results</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-silver-mist leading-relaxed">
               From concept to deployment, we deliver immersive experiences that educate, train, and transform. Our comprehensive services cover the full spectrum of XR technology.
@@ -165,7 +165,7 @@ export default function Services() {
                       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
                         {service.title}
                       </h2>
-                      <p className="text-cosmic-purple font-semibold mb-4">{service.subtitle}</p>
+                      <p className="text-brand-orange font-semibold mb-4">{service.subtitle}</p>
                       <p className="text-gray-600 dark:text-silver-mist leading-relaxed mb-8">
                         {service.description}
                       </p>
@@ -182,7 +182,7 @@ export default function Services() {
                         ))}
                       </ul>
 
-                      <Link href="/contact" className="inline-flex items-center gap-2 text-cosmic-purple hover:text-neon-cyan font-semibold transition-colors group/link">
+                      <Link href="/contact" className="inline-flex items-center gap-2 text-brand-orange hover:text-neon-cyan font-semibold transition-colors group/link">
                           Start a Project
                           <BsArrowRight className="group-hover/link:translate-x-1 transition-transform" />
                       </Link>
@@ -190,15 +190,15 @@ export default function Services() {
 
                     {/* Visual with Stats */}
                     <div className={`relative ${isEven ? 'lg:order-2' : ''}`}>
-                      <div className="aspect-video rounded-2xl bg-gray-100 dark:bg-midnight/50 border border-gray-200 dark:border-white/5 overflow-hidden relative group-hover:border-cosmic-purple/20 transition-colors">
+                      <div className="aspect-video rounded-2xl bg-gray-100 dark:bg-midnight/50 border border-gray-200 dark:border-white/5 overflow-hidden relative group-hover:border-brand-orange/20 transition-colors">
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <Icon className="text-8xl text-gray-200 dark:text-white/10 group-hover:text-cosmic-purple/20 group-hover:scale-110 transition-all duration-500" />
+                          <Icon className="text-8xl text-gray-200 dark:text-white/10 group-hover:text-brand-orange/20 group-hover:scale-110 transition-all duration-500" />
                         </div>
                         
                         {/* Stats overlay */}
                         <div className="absolute bottom-4 right-4">
                           <div className="px-4 py-3 bg-white dark:bg-midnight/80 rounded-xl shadow-lg border border-gray-100 dark:border-white/10 backdrop-blur-sm">
-                            <div className="text-2xl font-bold text-cosmic-purple">{service.stats.value}</div>
+                            <div className="text-2xl font-bold text-brand-orange">{service.stats.value}</div>
                             <div className="text-xs text-gray-500 dark:text-silver-mist uppercase tracking-wider">{service.stats.label}</div>
                           </div>
                         </div>
@@ -229,15 +229,15 @@ export default function Services() {
               return (
                 <div key={index} className="premium-card group">
                   <div className="flex items-start gap-5">
-                    <div className="w-16 h-16 rounded-2xl bg-cosmic-purple/10 border border-cosmic-purple/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-cosmic-purple/20 transition-all">
-                      <Icon className="text-3xl text-cosmic-purple" />
+                    <div className="w-16 h-16 rounded-2xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-brand-orange/20 transition-all">
+                      <Icon className="text-3xl text-brand-orange" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{industry.title}</h3>
                       <p className="text-gray-600 dark:text-silver-mist mb-4">{industry.description}</p>
                       <div className="flex flex-wrap gap-2">
                         {industry.benefits.map((benefit, i) => (
-                          <span key={i} className="inline-flex items-center gap-1 px-3 py-1 bg-cosmic-purple/5 dark:bg-cosmic-purple/10 text-cosmic-purple rounded-full text-sm">
+                          <span key={i} className="inline-flex items-center gap-1 px-3 py-1 bg-brand-orange/5 dark:bg-brand-orange/10 text-brand-orange rounded-full text-sm">
                             <BsCheck2 className="text-xs" />
                             {benefit}
                           </span>
@@ -274,16 +274,16 @@ export default function Services() {
                   <div key={index} className="relative group">
                     {/* Connector line */}
                     {index < process.length - 1 && (
-                      <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-cosmic-purple/20 z-0">
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-cosmic-purple/40"></div>
+                      <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-brand-orange/20 z-0">
+                        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-brand-orange/40"></div>
                       </div>
                     )}
                     
                     <div className="premium-card text-center relative z-10 h-full">
-                      <div className="w-12 h-12 rounded-xl bg-cosmic-purple/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-cosmic-purple/20 transition-all">
-                        <Icon className="text-xl text-cosmic-purple" />
+                      <div className="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-brand-orange/20 transition-all">
+                        <Icon className="text-xl text-brand-orange" />
                       </div>
-                      <span className="inline-block px-3 py-1 bg-cosmic-purple/5 text-cosmic-purple rounded-full text-xs font-bold mb-3">{item.step}</span>
+                      <span className="inline-block px-3 py-1 bg-brand-orange/5 text-brand-orange rounded-full text-xs font-bold mb-3">{item.step}</span>
                       <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
                       <p className="text-gray-600 dark:text-silver-mist text-sm">{item.description}</p>
                     </div>
@@ -299,33 +299,29 @@ export default function Services() {
       <section className="section-padding relative bg-white dark:bg-transparent">
         <div className="absolute inset-0 dot-pattern-bg opacity-30"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] rounded-full bg-cosmic-purple/5 dark:bg-cosmic-purple/10 blur-[150px]"></div>
+          <div className="w-[600px] h-[600px] rounded-full bg-brand-orange/5 dark:bg-brand-orange/10 blur-[150px]"></div>
         </div>
         
         <div className="container-narrow relative z-10 text-center">
           <div className="isometric-badge mx-auto mb-8">
-            <BsAward className="text-cosmic-purple" />
+            <BsAward className="text-brand-orange" />
             <span>Let's collaborate</span>
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Let's Build Something
-            <span className="text-cosmic-purple"> Remarkable</span>
+            <span className="text-brand-orange"> Remarkable</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-silver-mist mb-10 max-w-2xl mx-auto">
             Ready to transform your vision into an immersive reality? Let's start the conversation.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact">
-              <span className="btn-primary cursor-pointer group">
-                Start Your Project
-                <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
-              </span>
+            <Link href="/contact" className="btn-primary group">
+              Start Your Project
+              <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/portfolio">
-              <span className="btn-secondary cursor-pointer">
-                View Our Work
-              </span>
+            <Link href="/portfolio" className="btn-secondary">
+              Explore Services
             </Link>
           </div>
           
@@ -346,6 +342,6 @@ export default function Services() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

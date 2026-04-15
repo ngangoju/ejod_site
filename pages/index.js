@@ -10,7 +10,7 @@ const services = [
     icon: Md3DRotation,
     title: "3D Visualization",
     description: "Transform complex concepts into stunning 3D visuals that enhance understanding and accelerate learning outcomes.",
-    color: "bg-cosmic-purple",
+    color: "bg-brand-orange",
     features: ["Anatomical Models", "Scientific Simulations", "Interactive Diagrams"],
   },
   {
@@ -115,15 +115,22 @@ function AnimatedCounter({ end, suffix = "", duration = 2000 }) {
     if (!isVisible) return;
     
     let startTime;
+    let animationFrameId;
     const step = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const progress = Math.min((timestamp - startTime) / duration, 1);
       setCount(Math.floor(progress * end));
       if (progress < 1) {
-        requestAnimationFrame(step);
+        animationFrameId = requestAnimationFrame(step);
       }
     };
-    requestAnimationFrame(step);
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
   }, [isVisible, end, duration]);
 
   return (
@@ -166,12 +173,12 @@ export default function Home() {
           <div className="absolute inset-0 dot-pattern-bg opacity-30 dark:opacity-20"></div>
           
           {/* Animated 3D-inspired shapes */}
-          <div className="absolute top-1/4 left-10 w-64 h-64 rounded-3xl bg-cosmic-purple/5 dark:bg-cosmic-purple/10 animate-float shadow-isometric"></div>
+          <div className="absolute top-1/4 left-10 w-64 h-64 rounded-3xl bg-brand-orange/5 dark:bg-brand-orange/10 animate-float shadow-isometric"></div>
           <div className="absolute top-1/3 right-20 w-48 h-48 rounded-2xl bg-neon-cyan/5 dark:bg-neon-cyan/10 animate-float-slow shadow-isometric rotate-12"></div>
           <div className="absolute bottom-1/4 left-1/3 w-32 h-32 rounded-xl bg-success-green/5 dark:bg-success-green/10 animate-float-delay shadow-isometric -rotate-6"></div>
           
           {/* Accent orbs */}
-          <div className="absolute top-20 right-1/4 w-96 h-96 rounded-full bg-cosmic-purple/10 dark:bg-cosmic-purple/20 blur-[100px]"></div>
+          <div className="absolute top-20 right-1/4 w-96 h-96 rounded-full bg-brand-orange/10 dark:bg-brand-orange/20 blur-[100px]"></div>
           <div className="absolute bottom-20 left-1/4 w-80 h-80 rounded-full bg-neon-cyan/10 dark:bg-neon-cyan/15 blur-[100px]"></div>
 
           <div className="container-wide relative z-10">
@@ -190,7 +197,7 @@ export default function Home() {
               <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] mb-8 text-gray-900 dark:text-white animate-fade-up opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
                 Transform How
                 <br />
-                <span className="text-cosmic-purple">People Learn</span>
+                <span className="text-brand-orange">People Learn</span>
                 <br />
                 & Practice
               </h1>
@@ -202,17 +209,13 @@ export default function Home() {
 
               {/* CTAs */}
               <div className="flex flex-wrap gap-4 mb-12 animate-fade-up opacity-0" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
-                <Link href="/contact">
-                  <span className="btn-primary cursor-pointer group">
-                    Start Your Project
-                    <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
-                  </span>
+                <Link href="/contact" className="btn-primary group">
+                  Start Your Project
+                  <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <Link href="/portfolio">
-                  <span className="btn-secondary cursor-pointer group">
-                    <BsPlay className="mr-2 text-lg" />
-                    View Our Work
-                  </span>
+                <Link href="/portfolio" className="btn-secondary group">
+                  <BsPlay className="mr-2 text-lg" />
+                  View Our Work
                 </Link>
               </div>
 
@@ -221,7 +224,7 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="w-10 h-10 rounded-full bg-cosmic-purple border-3 border-white dark:border-deep-space flex items-center justify-center text-white text-xs font-bold shadow-md">
+                      <div key={i} className="w-10 h-10 rounded-full bg-brand-orange border-3 border-white dark:border-deep-space flex items-center justify-center text-white text-xs font-bold shadow-md">
                         {['DM', 'SK', 'JP', '+'][i - 1]}
                       </div>
                     ))}
@@ -270,7 +273,7 @@ export default function Home() {
 
         {/* Services Section - Premium Cards */}
         <section className="section-padding relative bg-white dark:bg-transparent">
-          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-cosmic-purple/5 dark:bg-cosmic-purple/10 blur-[150px]"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-brand-orange/5 dark:bg-brand-orange/10 blur-[150px]"></div>
           <div className="absolute inset-0 grid-pattern-bg opacity-50"></div>
           
           <div className="container-wide relative z-10">
@@ -299,7 +302,7 @@ export default function Home() {
                     {/* Features */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {service.features.map((feature, i) => (
-                        <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1 bg-cosmic-purple/5 dark:bg-cosmic-purple/10 text-cosmic-purple rounded-full text-sm font-medium">
+                        <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-orange/5 dark:bg-brand-orange/10 text-brand-orange rounded-full text-sm font-medium">
                           <BsCheck2Circle className="text-xs" />
                           {feature}
                         </span>
@@ -307,7 +310,7 @@ export default function Home() {
                     </div>
                     
                     {/* Link */}
-                    <Link href="/services" className="inline-flex items-center text-cosmic-purple hover:text-neon-cyan font-semibold transition-colors cursor-pointer group/link">
+                    <Link href="/services" className="inline-flex items-center text-brand-orange hover:text-neon-cyan font-semibold transition-colors cursor-pointer group/link">
                         Learn More
                         <BsArrowRight className="ml-2 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
@@ -338,7 +341,8 @@ export default function Home() {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      layout="fill"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
@@ -358,7 +362,7 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-cosmic-purple transition-colors">
+                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-brand-orange transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-gray-600 dark:text-silver-mist mb-4 line-clamp-2">{project.description}</p>
@@ -368,18 +372,16 @@ export default function Home() {
                       <BsCheck2Circle />
                       {project.feature}
                     </div>
-                    <BsBoxArrowUpRight className="text-gray-400 group-hover:text-cosmic-purple transition-colors" />
+                    <BsBoxArrowUpRight className="text-gray-400 group-hover:text-brand-orange transition-colors" />
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="text-center mt-12">
-              <Link href="/portfolio">
-                <span className="btn-secondary cursor-pointer inline-flex items-center gap-2 group">
-                  View All Projects
-                  <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </span>
+              <Link href="/portfolio" className="btn-secondary inline-flex items-center gap-2 group">
+                View All Projects
+                <BsArrowRight className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
@@ -387,7 +389,7 @@ export default function Home() {
 
         {/* Testimonials Section - NEW */}
         <section className="section-padding relative bg-white dark:bg-transparent overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-cosmic-purple/5 dark:bg-cosmic-purple/10 blur-[150px]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-orange/5 dark:bg-brand-orange/10 blur-[150px]"></div>
           
           <div className="container-wide relative z-10">
             <div className="section-header">
@@ -401,7 +403,7 @@ export default function Home() {
                   <p className="testimonial-content">"{testimonial.content}"</p>
                   <div className="testimonial-author">
                     <div className="author-avatar">
-                      <span className="text-cosmic-purple font-bold">{testimonial.avatar}</span>
+                      <span className="text-brand-orange font-bold">{testimonial.avatar}</span>
                     </div>
                     <div className="author-info">
                       <h4>{testimonial.author}</h4>
@@ -420,7 +422,7 @@ export default function Home() {
                   const Icon = industry.icon;
                   return (
                     <div key={index} className="trust-badge">
-                      <Icon className="text-2xl text-cosmic-purple" />
+                      <Icon className="text-2xl text-brand-orange" />
                       <div>
                         <div className="font-semibold text-gray-900 dark:text-white">{industry.label}</div>
                         <div className="text-sm text-gray-500 dark:text-silver-mist">{industry.count} institutions</div>
@@ -453,7 +455,7 @@ export default function Home() {
                     return (
                       <div key={index} className="feature-item">
                         <div className="feature-icon">
-                          <Icon className="text-xl text-cosmic-purple" />
+                          <Icon className="text-xl text-brand-orange" />
                         </div>
                         <div>
                           <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">{value.title}</h4>
@@ -472,11 +474,12 @@ export default function Home() {
                     <Image
                       src="/images/Medical_Anatomy_App.png"
                       alt="EJOD in action"
-                      layout="fill"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover"
                     />
                     <div className="absolute inset-0 bg-deep-space/60 flex items-center justify-center">
-                      <div className="w-20 h-20 rounded-full bg-cosmic-purple/90 backdrop-blur-sm border-2 border-white/20 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform group shadow-glow-lg">
+                      <div className="w-20 h-20 rounded-full bg-brand-orange/90 backdrop-blur-sm border-2 border-white/20 flex items-center justify-center cursor-pointer hover:scale-110 transition-transform group shadow-glow-lg">
                         <BsPlay className="text-3xl text-white ml-1" />
                       </div>
                     </div>
@@ -485,7 +488,7 @@ export default function Home() {
                 </div>
                 
                 {/* Decorative elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl bg-cosmic-purple opacity-10 dark:opacity-20"></div>
+                <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl bg-brand-orange opacity-10 dark:opacity-20"></div>
                 <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-2xl bg-neon-cyan opacity-10 dark:opacity-20"></div>
               </div>
             </div>
@@ -496,33 +499,29 @@ export default function Home() {
         <section className="section-padding relative overflow-hidden bg-white dark:bg-transparent">
           {/* Background */}
           <div className="absolute inset-0 dot-pattern-bg opacity-30"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-cosmic-purple/5 dark:bg-cosmic-purple/10 blur-[200px]"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-orange/5 dark:bg-brand-orange/10 blur-[200px]"></div>
           
           <div className="container-narrow relative z-10 text-center">
             <div className="isometric-badge mx-auto mb-8">
-              <BsLightning className="text-cosmic-purple" />
+              <BsLightning className="text-brand-orange" />
               <span>Ready to innovate?</span>
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               Ready to Transform
               <br />
-              <span className="text-cosmic-purple">Your Training?</span>
+              <span className="text-brand-orange">Your Training?</span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-silver-mist mb-10 max-w-2xl mx-auto">
               Join 25+ organizations already using immersive technology to achieve better learning outcomes. Let's discuss your project.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact">
-                <span className="btn-primary cursor-pointer group text-lg px-10 py-5">
-                  Book a Free Consultation
-                  <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
-                </span>
+              <Link href="/contact" className="btn-primary group text-lg px-10 py-5">
+                Book a Free Consultation
+                <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <Link href="/services">
-                <span className="btn-secondary cursor-pointer text-lg px-8 py-5">
-                  Explore Services
-                </span>
+              <Link href="/services" className="btn-secondary text-lg px-8 py-5">
+                Explore Services
               </Link>
             </div>
             

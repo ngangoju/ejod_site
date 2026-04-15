@@ -45,6 +45,7 @@ export default function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [errors, setErrors] = useState({});
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -61,42 +62,50 @@ export default function Contact() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
     if (errors[name]) {
       setErrors({ ...errors, [name]: "" });
+    }
+
+    if (submitError) {
+      setSubmitError("");
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
-    
+    if (!validateForm()) {
+      return;
+    }
+
     setIsSubmitting(true);
-    
+    setSubmitError("");
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setSubmitted(true);
+        setFormData({ name: "", email: "", organization: "", projectType: "", message: "" });
+        setErrors({});
       } else {
         const data = await response.json();
-        alert(data.message || 'Failed to send message. Please try again.');
+        setSubmitError(data.message || "Failed to send message. Please try again or use direct email.");
       }
     } catch (error) {
-      console.error('Submission error:', error);
-      alert('Failed to send message. Please try again or email us directly.');
+      console.error('Contact form submission error:', error);
+      setSubmitError("An unexpected network error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-deep-space transition-colors duration-300">
+    <main className="min-h-screen bg-gray-50 dark:bg-deep-space transition-colors duration-300">
       <Head>
         <title>Contact Us | ƎJO-D - Let's Create Together</title>
         <meta name="description" content="Get in touch with EJOD to discuss your 3D, VR, or AR project. We respond within 24 hours." />
@@ -106,17 +115,17 @@ export default function Contact() {
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
         <div className="absolute inset-0 mesh-bg-light dark:mesh-bg"></div>
         <div className="absolute inset-0 dot-pattern-bg opacity-30 dark:opacity-20"></div>
-        <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-cosmic-purple/10 dark:bg-cosmic-purple/15 blur-[120px]"></div>
+        <div className="absolute top-20 left-1/4 w-96 h-96 rounded-full bg-brand-orange/10 dark:bg-brand-orange/15 blur-[120px]"></div>
         
         <div className="container-wide relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <div className="isometric-badge mx-auto mb-6">
-              <BsChat className="text-cosmic-purple" />
+              <BsChat className="text-brand-orange" />
               <span>Get in Touch</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Let's Create
-              <span className="text-cosmic-purple"> Together</span>
+              <span className="text-brand-orange"> Together</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-silver-mist leading-relaxed">
               Tell us about your project. We typically respond within 24 hours and offer a free initial consultation.
@@ -141,7 +150,7 @@ export default function Contact() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="name" className="block text-sm font-semibold text-gray-700 dark:text-silver-mist mb-2">
-                          Your Name <span className="text-cosmic-purple">*</span>
+                          Your Name <span className="text-brand-orange">*</span>
                         </label>
                         <input
                           type="text"
@@ -156,7 +165,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-silver-mist mb-2">
-                          Email Address <span className="text-cosmic-purple">*</span>
+                          Email Address <span className="text-brand-orange">*</span>
                         </label>
                         <input
                           type="email"
@@ -210,7 +219,7 @@ export default function Contact() {
                     {/* Message */}
                     <div>
                       <label htmlFor="message" className="block text-sm font-semibold text-gray-700 dark:text-silver-mist mb-2">
-                        Project Details <span className="text-cosmic-purple">*</span>
+                        Project Details <span className="text-brand-orange">*</span>
                       </label>
                       <textarea
                         id="message"
@@ -246,6 +255,11 @@ export default function Contact() {
                         </span>
                       )}
                     </button>
+                    {submitError && (
+                      <div role="alert" className="mt-4 p-4 text-red-700 bg-red-100 rounded-lg dark:bg-red-900/30 dark:text-red-400 border border-red-200 dark:border-red-800/30 text-sm">
+                        {submitError}
+                      </div>
+                    )}
                   </form>
                 </div>
               ) : (
@@ -260,6 +274,7 @@ export default function Contact() {
                   <button
                     onClick={() => {
                       setSubmitted(false);
+                      setSubmitError('');
                       setFormData({ name: "", email: "", organization: "", projectType: "", message: "" });
                     }}
                     className="btn-secondary"
@@ -280,8 +295,8 @@ export default function Contact() {
                     const Icon = reason.icon;
                     return (
                       <li key={index} className="flex items-center gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-cosmic-purple/10 flex items-center justify-center flex-shrink-0">
-                          <Icon className="text-cosmic-purple" />
+                        <div className="w-10 h-10 rounded-xl bg-brand-orange/10 flex items-center justify-center flex-shrink-0">
+                          <Icon className="text-brand-orange" />
                         </div>
                         <span className="text-gray-600 dark:text-silver-mist">{reason.text}</span>
                       </li>
@@ -295,30 +310,30 @@ export default function Contact() {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Direct Contact</h3>
                 <ul className="space-y-5">
                   <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-cosmic-purple/10 border border-cosmic-purple/20 flex items-center justify-center flex-shrink-0">
-                      <BsPhone className="text-cosmic-purple" />
+                    <div className="w-10 h-10 rounded-xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center flex-shrink-0">
+                      <BsPhone className="text-brand-orange" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-400 dark:text-silver-mist/70 mb-1">Phone</p>
-                      <a href="tel:+250786686391" className="text-gray-900 dark:text-white font-medium hover:text-cosmic-purple transition-colors">
+                      <a href="tel:+250786686391" className="text-gray-900 dark:text-white font-medium hover:text-brand-orange transition-colors">
                         +250 786 686 391
                       </a>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-cosmic-purple/10 border border-cosmic-purple/20 flex items-center justify-center flex-shrink-0">
-                      <BsEnvelope className="text-cosmic-purple" />
+                    <div className="w-10 h-10 rounded-xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center flex-shrink-0">
+                      <BsEnvelope className="text-brand-orange" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-400 dark:text-silver-mist/70 mb-1">Email</p>
-                      <a href="mailto:info@ejod.com" className="text-gray-900 dark:text-white font-medium hover:text-cosmic-purple transition-colors">
+                      <a href="mailto:info@ejod.com" className="text-gray-900 dark:text-white font-medium hover:text-brand-orange transition-colors">
                         info@ejod.com
                       </a>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-cosmic-purple/10 border border-cosmic-purple/20 flex items-center justify-center flex-shrink-0">
-                      <BsGeoAlt className="text-cosmic-purple" />
+                    <div className="w-10 h-10 rounded-xl bg-brand-orange/10 border border-brand-orange/20 flex items-center justify-center flex-shrink-0">
+                      <BsGeoAlt className="text-brand-orange" />
                     </div>
                     <div>
                       <p className="text-sm text-gray-400 dark:text-silver-mist/70 mb-1">Location</p>
@@ -339,7 +354,7 @@ export default function Contact() {
                         className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
                       >
                         <span className="font-medium text-gray-900 dark:text-white text-sm">{faq.question}</span>
-                        <span className={`text-cosmic-purple transition-transform ${openFaq === index ? 'rotate-180' : ''}`}>
+                        <span className={`text-brand-orange transition-transform ${openFaq === index ? 'rotate-180' : ''}`}>
                           ▼
                         </span>
                       </button>
@@ -356,6 +371,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

@@ -32,6 +32,7 @@ const projects = [
     featured: true,
     hasInteractiveDemo: true,
     demoType: 'anatomy',
+    demoRoute: '/portfolio/anatomy',
     impact: "40% faster learning outcomes",
     client: "Medical University",
   },
@@ -46,6 +47,7 @@ const projects = [
     featured: true,
     hasInteractiveDemo: true,
     demoType: 'campus',
+    demoRoute: '/portfolio/campus',
     impact: "60% increase in applications",
     client: "AIMS Rwanda",
   },
@@ -60,6 +62,7 @@ const projects = [
     featured: true,
     hasInteractiveDemo: true,
     demoType: 'surgical',
+    demoRoute: '/portfolio/surgery',
     impact: "Zero-risk practice environment",
     client: "CHUK Hospital",
   },
@@ -85,7 +88,7 @@ export default function Portfolio() {
     : projects.filter(p => p.category === activeCategory || p.tags.some(t => t.toLowerCase().includes(activeCategory)));
 
   return (
-    <div className="min-h-screen bg-white dark:bg-deep-space transition-colors duration-300">
+    <main className="min-h-screen bg-white dark:bg-deep-space transition-colors duration-300">
       {/* Interactive Demo Modal */}
       <InteractiveModal 
         isOpen={modalState.isOpen} 
@@ -107,13 +110,13 @@ export default function Portfolio() {
         <div className="container-wide relative z-10">
           <div className="max-w-3xl">
             <div className="isometric-badge mb-6">
-              <BsAward className="text-cosmic-purple" />
+              <BsAward className="text-brand-orange" />
               <span>Case Studies</span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               Projects That
               <br />
-              <span className="text-cosmic-purple">Deliver Results</span>
+              <span className="text-brand-orange">Deliver Results</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-silver-mist leading-relaxed">
               Explore our portfolio of transformative XR projects reshaping education and healthcare. Each project is designed to drive measurable outcomes.
@@ -134,8 +137,8 @@ export default function Portfolio() {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
                     activeCategory === cat.id
-                      ? "bg-cosmic-purple text-white shadow-glow"
-                      : "bg-white dark:bg-white/5 text-gray-600 dark:text-silver-mist hover:text-cosmic-purple dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10"
+                      ? "bg-brand-orange text-white shadow-glow"
+                      : "bg-white dark:bg-white/5 text-gray-600 dark:text-silver-mist hover:text-brand-orange dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10"
                   }`}
                 >
                   {Icon && <Icon className="text-lg" />}
@@ -164,7 +167,8 @@ export default function Portfolio() {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      layout="fill"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
@@ -177,7 +181,7 @@ export default function Portfolio() {
                     
                     {/* View overlay */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-16 h-16 rounded-full bg-cosmic-purple/90 backdrop-blur-sm flex items-center justify-center shadow-glow">
+                      <div className="w-16 h-16 rounded-full bg-brand-orange/90 backdrop-blur-sm flex items-center justify-center shadow-glow">
                         <BsEye className="text-2xl text-white" />
                       </div>
                     </div>
@@ -198,7 +202,7 @@ export default function Portfolio() {
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map((tag, i) => (
-                        <span key={i} className="px-3 py-1 bg-cosmic-purple/5 dark:bg-cosmic-purple/10 text-cosmic-purple rounded-full text-xs font-medium">
+                        <span key={i} className="px-3 py-1 bg-brand-orange/5 dark:bg-brand-orange/10 text-brand-orange rounded-full text-xs font-medium">
                           {tag}
                         </span>
                       ))}
@@ -209,7 +213,7 @@ export default function Portfolio() {
                       )}
                     </div>
 
-                    <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-cosmic-purple transition-colors">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-brand-orange transition-colors">
                       {project.title}
                     </h2>
                     
@@ -229,21 +233,28 @@ export default function Portfolio() {
 
                     {/* CTA */}
                     <div className="flex flex-wrap gap-4">
+                      {project.hasInteractiveDemo && project.demoRoute && (
+                        <Link
+                          href={project.demoRoute}
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-brand-orange text-white rounded-full font-semibold transition-all hover:bg-brand-orange/90 hover:shadow-glow group/link"
+                        >
+                          <BsPlayFill className="text-lg" />
+                          Full Experience
+                          <BsArrowRight className="group-hover/link:translate-x-1 transition-transform" />
+                        </Link>
+                      )}
                       {project.hasInteractiveDemo && (
                         <button
                           onClick={() => openDemo(project.demoType)}
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-cosmic-purple text-white rounded-full font-semibold transition-all hover:bg-cosmic-purple/90 hover:shadow-glow group/link"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/80 dark:bg-white/5 text-gray-700 dark:text-silver-mist rounded-full font-medium text-sm transition-all hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10"
                         >
-                          <BsPlayFill className="text-lg" />
-                          Try Interactive Demo
-                          <BsArrowRight className="group-hover/link:translate-x-1 transition-transform" />
+                          <BsEye className="text-sm" />
+                          Quick Preview
                         </button>
                       )}
-                      <Link href="#">
-                        <span className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-white rounded-full font-semibold transition-all hover:bg-gray-200 dark:hover:bg-white/10 cursor-pointer">
-                          <BsBoxArrowUpRight />
-                          View Case Study
-                        </span>
+                      <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-white/5 text-gray-700 dark:text-white rounded-full font-semibold transition-all hover:bg-gray-200 dark:hover:bg-white/10 cursor-pointer">
+                        <BsBoxArrowUpRight className="mr-1" />
+                        Request Case Study
                       </Link>
                     </div>
                   </div>
@@ -260,7 +271,7 @@ export default function Portfolio() {
               <p className="text-gray-500 dark:text-silver-mist text-lg">No projects found in this category.</p>
               <button 
                 onClick={() => setActiveCategory("all")}
-                className="mt-4 text-cosmic-purple font-medium hover:underline"
+                className="mt-4 text-brand-orange font-medium hover:underline"
               >
                 View all projects
               </button>
@@ -285,8 +296,8 @@ export default function Portfolio() {
               const Icon = cap.icon;
               return (
                 <div key={index} className="premium-card text-center group">
-                  <div className="w-16 h-16 rounded-2xl bg-cosmic-purple/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 group-hover:bg-cosmic-purple/20 transition-all duration-300">
-                    <Icon className="text-3xl text-cosmic-purple" />
+                  <div className="w-16 h-16 rounded-2xl bg-brand-orange/10 flex items-center justify-center mx-auto mb-5 group-hover:scale-110 group-hover:bg-brand-orange/20 transition-all duration-300">
+                    <Icon className="text-3xl text-brand-orange" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{cap.title}</h3>
                   <p className="text-gray-500 dark:text-silver-mist text-sm">{cap.description}</p>
@@ -301,32 +312,28 @@ export default function Portfolio() {
       <section className="section-padding relative bg-white dark:bg-transparent">
         <div className="absolute inset-0 dot-pattern-bg opacity-30"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-[600px] h-[600px] rounded-full bg-cosmic-purple/5 dark:bg-cosmic-purple/10 blur-[150px]"></div>
+          <div className="w-[600px] h-[600px] rounded-full bg-brand-orange/5 dark:bg-brand-orange/10 blur-[150px]"></div>
         </div>
         
         <div className="container-narrow relative z-10 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Ready to Start
-            <span className="text-cosmic-purple"> Your Project?</span>
+            <span className="text-brand-orange"> Your Project?</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-silver-mist mb-10 max-w-2xl mx-auto">
             Let's discuss how we can bring your vision to life with immersive technology that delivers results.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact">
-              <span className="btn-primary cursor-pointer group">
-                Start Your Project
-                <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
-              </span>
+            <Link href="/contact" className="btn-primary group">
+              Start Your Project
+              <BsArrowRight className="inline-block ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/services">
-              <span className="btn-secondary cursor-pointer">
-                Explore Services
-              </span>
+            <Link href="/services" className="btn-secondary">
+              Explore Services
             </Link>
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

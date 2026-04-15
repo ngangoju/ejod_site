@@ -1,10 +1,16 @@
 import '../styles/globals.css'
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
+// Routes that use their own SceneShell chrome (no Header/Footer)
+const IMMERSIVE_ROUTES = ['/portfolio/anatomy', '/portfolio/campus', '/portfolio/surgery'];
+
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const isImmersiveRoute = IMMERSIVE_ROUTES.includes(router.pathname);
   const [isDarkMode, setDarkMode] = useState(false); // Default to light
 
   useEffect(() => {
@@ -49,18 +55,23 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content={isDarkMode ? "#0A0E1A" : "#FFFFFF"} />
         <link rel="icon" href="/favicon.ico" />
-        {/* Open Graph */}
+        {/* Open Graph and SEO */}
+        <link rel="canonical" href="https://ejod.com" />
         <meta property="og:title" content="ƎJO-D | Immersive 3D & XR Experiences" />
         <meta property="og:description" content="Cutting-edge VR, AR, and 3D solutions for education and healthcare." />
         <meta property="og:type" content="website" />
-        {/* Preconnect to Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <meta property="og:url" content="https://ejod.com" />
+        <meta property="og:image" content="https://ejod.com/images/Medical_Anatomy_App.png" />
+        <meta property="og:site_name" content="ƎJO-D Immersive" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="ƎJO-D | Immersive 3D & XR Experiences" />
+        <meta name="twitter:description" content="Cutting-edge VR, AR, and 3D solutions for education and healthcare." />
+        <meta name="twitter:image" content="https://ejod.com/images/Medical_Anatomy_App.png" />
       </Head>
-      <div className="min-h-screen bg-white dark:bg-deep-space transition-colors duration-300">
-        <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+      <div className={`min-h-screen bg-white dark:bg-deep-space transition-colors duration-300 font-inter ${isImmersiveRoute ? 'immersive-route' : ''}`}>
+        {!isImmersiveRoute && <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />}
         <Component {...pageProps} />
-        <Footer isDarkMode={isDarkMode} />
+        {!isImmersiveRoute && <Footer isDarkMode={isDarkMode} />}
       </div>
     </>
   );
